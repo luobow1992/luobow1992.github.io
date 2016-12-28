@@ -135,12 +135,6 @@ $content-desktop-large = 900px
   
     
     <entry>
-      <title><![CDATA[关于我]]></title>
-      <url>http://tbwang.win/about/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title></title>
       <url>http://tbwang.win/categories/index.html</url>
       <content type="html"></content>
@@ -149,6 +143,12 @@ $content-desktop-large = 900px
     <entry>
       <title></title>
       <url>http://tbwang.win/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于我]]></title>
+      <url>http://tbwang.win/about/index.html</url>
       <content type="html"></content>
     </entry>
     
