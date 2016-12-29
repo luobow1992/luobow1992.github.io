@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[FileZilla使用方法(Mac版本)]]></title>
-      <url>http://tbwang.win/FileZilla-Doc.html</url>
+      <url>http://tbwang.win/2016/12/27/FileZilla-Doc/</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-15672782d00886af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <h3 id="Mac系统下如何获取linux服务器文件"><a href="#Mac系统下如何获取linux服务器文件" class="headerlink" title="Mac系统下如何获取linux服务器文件"></a>Mac系统下如何获取linux服务器文件</h3><p> Mac系统下我们出了通过终端命令行来获取Linux服务器文件之外，还可以通过<a href="https://filezilla-project.org" target="_blank" rel="external">FileZilla</a>这款软件来直观的选择所需的文件并且下载到本地。</p>
 <blockquote>
@@ -23,7 +23,7 @@
     
     <entry>
       <title><![CDATA[Markdown使用方法]]></title>
-      <url>http://tbwang.win/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</url>
+      <url>http://tbwang.win/2016/12/26/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<h1 id="Markdown使用方法"><a href="#Markdown使用方法" class="headerlink" title="Markdown使用方法"></a>Markdown使用方法</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
 <p><a href="http://baike.baidu.com/link?url=W4NFVG2OdlAhRWBFUt8tAFAELA7d7NvaTvi5pJGLmT7c3El2StkWyX2iA9qSjjcOGIClZ85NhdYzBXfKAkIwmAHDy0hct6Cu5xlbMScSIxS" target="_blank" rel="external">Markdown</a> 是一种轻量级的<strong>「标记语言」</strong>，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被<strong>「标记」</strong>、<strong>「语言」</strong>所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。 </p>
 </blockquote>
@@ -65,7 +65,7 @@
 <p>你好，我是代码框<br>也可以使用顿号来实现<br><code>你好，我也是代码框</code></p>
 <p>###分割线<br>分割线的语法只需要三个<code>***</code>号</p>
 <hr>
-<h2 id="相关推荐"><a href="#相关推荐" class="headerlink" title="相关推荐"></a>相关推荐</h2><p><strong>工具</strong><br><em>图床工具用来上传图片获取 URL 地址</em><br><a href="http://droplr.com" target="_blank" rel="external">Droplr</a><br><a href="http://www.getcloudapp.com" target="_blank" rel="external">Cloudapp</a><br><a href="https://itunes.apple.com/cn/app/yi-xiang/id672522335?mt=12&amp;uo=4" target="_blank" rel="external">ezShare for Mac</a><br><a href="http://weibotuchuang.sinaapp.com" target="_blank" rel="external">围脖图床修复计划</a></p>
+<h2 id="三-相关推荐"><a href="#三-相关推荐" class="headerlink" title="三 相关推荐"></a>三 相关推荐</h2><p><strong>工具</strong><br><em>图床工具用来上传图片获取 URL 地址</em><br><a href="http://droplr.com" target="_blank" rel="external">Droplr</a><br><a href="http://www.getcloudapp.com" target="_blank" rel="external">Cloudapp</a><br><a href="https://itunes.apple.com/cn/app/yi-xiang/id672522335?mt=12&amp;uo=4" target="_blank" rel="external">ezShare for Mac</a><br><a href="http://weibotuchuang.sinaapp.com" target="_blank" rel="external">围脖图床修复计划</a></p>
 <p><em>在线好用的Markdown工具，为印象笔记而生</em><br><a href="http://maxiang.info" target="_blank" rel="external">马克飞象，专为印象笔记打造的Markdown编辑器，非常推荐</a></p>
 <p>发现一篇博客，可以参考下：<a href="http://blog.junyu.pro/posts/hexo/0006-qa-posts-based-on-markdown.html#align" target="_blank" rel="external">MarkDown使用教程</a></p>
 <p>文／Te_Lee（简书作者） </p>
@@ -74,7 +74,7 @@
     
     <entry>
       <title><![CDATA[Hexo页面功能编辑]]></title>
-      <url>http://tbwang.win/Hexo-Style-Modify.html</url>
+      <url>http://tbwang.win/2016/12/24/Hexo-Style-Modify/</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-f897aef7850fccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <h3 id="Hexo-添加搜索功能"><a href="#Hexo-添加搜索功能" class="headerlink" title="Hexo 添加搜索功能"></a>Hexo 添加搜索功能</h3><blockquote>
 <p>打开终端工具进入hexo所在目录，执行下列语句安装插件</p>
