@@ -35,6 +35,49 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Hexo页面功能编辑]]></title>
+      <url>http://tbwang.win/Hexo-Style-Modify.html</url>
+      <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-f897aef7850fccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
+<h3 id="Hexo-添加搜索功能"><a href="#Hexo-添加搜索功能" class="headerlink" title="Hexo 添加搜索功能"></a>Hexo 添加搜索功能</h3><blockquote>
+<p>打开终端工具进入hexo所在目录，执行下列语句安装插件</p>
+</blockquote>
+<p><code>1. $ npm install hexo-generator-searchdb --save</code></p>
+<blockquote>
+<p>在根目录的<strong>_config.yml</strong>文件中添加下列配置</p>
+</blockquote>
+<pre><code>search:
+path: search.xml
+field: post
+format: html
+limit: 10000
+</code></pre><blockquote>
+<p>3.效果如下</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3949443-7afee89c35777dac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="Hexo更换主题"><a href="#Hexo更换主题" class="headerlink" title="Hexo更换主题"></a>Hexo更换主题</h3><blockquote>
+<p>首先通过终端工具将github上的主题下载到本地</p>
+</blockquote>
+<pre><code>1. git clone https://github.com/iissnan/hexo-theme-next  themes/next
+</code></pre><blockquote>
+<p>修改Hexo根目录下的<em>_config.yml</em>文件，将Theme变更为所下载的主题名，比如我们本次下载的主题名为<code>next</code>,那么就改为<code>next</code></p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3949443-162d2e9bbf31e8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="更改所选主题"></p>
+<h3 id="关于添加居中模块"><a href="#关于添加居中模块" class="headerlink" title="关于添加居中模块"></a>关于添加居中模块</h3><pre><code>&lt;blockquote class=&quot;blockquote-center&quot;&gt;添加居中模块&lt;/blockquote&gt;
+</code></pre><blockquote class="blockquote-center">添加居中模块</blockquote>
+
+<h3 id="关于如何修改内容区域宽度"><a href="#关于如何修改内容区域宽度" class="headerlink" title="关于如何修改内容区域宽度"></a>关于如何修改内容区域宽度</h3><p><code>next</code>对内容的宽度的设定如下：</p>
+<blockquote>
+<p>00px，当屏幕宽度 &lt; 1600px<br>900px，当屏幕宽度 &gt;= 1600px<br>移动设备下，宽度自适应</p>
+</blockquote>
+<p> 如果你需要修改内容的宽度，同样需要编辑样式文件。编辑主题的 <code>source\css\_variables\custom.styl</code>文件，修改为</p>
+<pre><code>// 修改成你期望的宽度
+$content-desktop = 700px
+// 当视窗超过 1600px 后的宽度
+$content-desktop-large = 900px
+</code></pre><h3 id="Hexo使用方法参考-博客链接"><a href="#Hexo使用方法参考-博客链接" class="headerlink" title="Hexo使用方法参考-博客链接"></a>Hexo使用方法参考-博客链接</h3><p><a href="https://neveryu.github.io/2016/09/30/hexo-next-two/#more" target="_blank" rel="external">Hexo-NexT搭建个人博客</a><br><a href="http://blog.junyu.pro/posts/hexo/0010-hexo-learn-from-Never-yu.html" target="_blank" rel="external">Hexo博客设置进阶</a><br><a href="http://www.arao.me/2015/hexo-next-theme-optimize-duoshuo/" target="_blank" rel="external">动动手指，给你的Hexo站点添加最近访客（多说篇）</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">Hexo你的博客</a></p>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Markdown使用方法]]></title>
       <url>http://tbwang.win/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</url>
       <content type="html"><![CDATA[<h1 id="Markdown使用方法"><a href="#Markdown使用方法" class="headerlink" title="Markdown使用方法"></a>Markdown使用方法</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
@@ -82,49 +125,6 @@
 <p><em>在线好用的Markdown工具，为印象笔记而生</em><br><a href="http://maxiang.info" target="_blank" rel="external">马克飞象，专为印象笔记打造的Markdown编辑器，非常推荐</a></p>
 <p>发现一篇博客，可以参考下：<a href="http://blog.junyu.pro/posts/hexo/0006-qa-posts-based-on-markdown.html#align" target="_blank" rel="external">MarkDown使用教程</a></p>
 <p>文／Te_Lee（简书作者） </p>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hexo页面功能编辑]]></title>
-      <url>http://tbwang.win/Hexo-Style-Modify.html</url>
-      <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-f897aef7850fccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
-<h3 id="Hexo-添加搜索功能"><a href="#Hexo-添加搜索功能" class="headerlink" title="Hexo 添加搜索功能"></a>Hexo 添加搜索功能</h3><blockquote>
-<p>打开终端工具进入hexo所在目录，执行下列语句安装插件</p>
-</blockquote>
-<p><code>1. $ npm install hexo-generator-searchdb --save</code></p>
-<blockquote>
-<p>在根目录的<strong>_config.yml</strong>文件中添加下列配置</p>
-</blockquote>
-<pre><code>search:
-path: search.xml
-field: post
-format: html
-limit: 10000
-</code></pre><blockquote>
-<p>3.效果如下</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/3949443-7afee89c35777dac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="Hexo更换主题"><a href="#Hexo更换主题" class="headerlink" title="Hexo更换主题"></a>Hexo更换主题</h3><blockquote>
-<p>首先通过终端工具将github上的主题下载到本地</p>
-</blockquote>
-<pre><code>1. git clone https://github.com/iissnan/hexo-theme-next  themes/next
-</code></pre><blockquote>
-<p>修改Hexo根目录下的<em>_config.yml</em>文件，将Theme变更为所下载的主题名，比如我们本次下载的主题名为<code>next</code>,那么就改为<code>next</code></p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/3949443-162d2e9bbf31e8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="更改所选主题"></p>
-<h3 id="关于添加居中模块"><a href="#关于添加居中模块" class="headerlink" title="关于添加居中模块"></a>关于添加居中模块</h3><pre><code>&lt;blockquote class=&quot;blockquote-center&quot;&gt;添加居中模块&lt;/blockquote&gt;
-</code></pre><blockquote class="blockquote-center">添加居中模块</blockquote>
-
-<h3 id="关于如何修改内容区域宽度"><a href="#关于如何修改内容区域宽度" class="headerlink" title="关于如何修改内容区域宽度"></a>关于如何修改内容区域宽度</h3><p><code>next</code>对内容的宽度的设定如下：</p>
-<blockquote>
-<p>00px，当屏幕宽度 &lt; 1600px<br>900px，当屏幕宽度 &gt;= 1600px<br>移动设备下，宽度自适应</p>
-</blockquote>
-<p> 如果你需要修改内容的宽度，同样需要编辑样式文件。编辑主题的 <code>source\css\_variables\custom.styl</code>文件，修改为</p>
-<pre><code>// 修改成你期望的宽度
-$content-desktop = 700px
-// 当视窗超过 1600px 后的宽度
-$content-desktop-large = 900px
-</code></pre><h3 id="Hexo使用方法参考-博客链接"><a href="#Hexo使用方法参考-博客链接" class="headerlink" title="Hexo使用方法参考-博客链接"></a>Hexo使用方法参考-博客链接</h3><p><a href="https://neveryu.github.io/2016/09/30/hexo-next-two/#more" target="_blank" rel="external">Hexo-NexT搭建个人博客</a><br><a href="http://blog.junyu.pro/posts/hexo/0010-hexo-learn-from-Never-yu.html" target="_blank" rel="external">Hexo博客设置进阶</a><br><a href="http://www.arao.me/2015/hexo-next-theme-optimize-duoshuo/" target="_blank" rel="external">动动手指，给你的Hexo站点添加最近访客（多说篇）</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">Hexo你的博客</a></p>]]></content>
     </entry>
     
   
