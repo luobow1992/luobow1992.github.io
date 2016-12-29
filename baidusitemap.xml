@@ -4,43 +4,8 @@
 
     
   <url>
-    <loc>http://tbwang.win/FileZilla-Doc.html</loc>
-    <lastmod>2016-12-29T02:15:17.000Z</lastmod>
-    <data>
-        <display>
-        <title>FileZilla使用方法(Mac版本)</title>
-        <pubTime>2016-12-27T01:58:29.000Z</pubTime>
-        
-        <tag>FileZilla</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具使用" url="http://tbwang.win/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://tbwang.win/hello-world.html</loc>
-    <lastmod>2016-12-29T02:15:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-12-28T11:39:43.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://tbwang.win/Hexo-Style-Modify.html</loc>
-    <lastmod>2016-12-29T02:15:05.000Z</lastmod>
+    <lastmod>2016-12-29T07:36:41.000Z</lastmod>
     <data>
         <display>
         <title>Hexo页面功能编辑</title>
@@ -60,7 +25,7 @@
     
   <url>
     <loc>http://tbwang.win/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</loc>
-    <lastmod>2016-12-29T02:14:59.000Z</lastmod>
+    <lastmod>2016-12-29T07:36:15.000Z</lastmod>
     <data>
         <display>
         <title>Markdown使用方法</title>
@@ -72,6 +37,26 @@
            
              
               <breadCrumb title="Hexo教程" url="http://tbwang.win/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tbwang.win/FileZilla-Doc.html</loc>
+    <lastmod>2016-12-29T02:15:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>FileZilla使用方法(Mac版本)</title>
+        <pubTime>2016-12-27T01:58:29.000Z</pubTime>
+        
+        <tag>FileZilla</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具使用" url="http://tbwang.win/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
           
         </display>
     </data>
