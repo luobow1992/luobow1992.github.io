@@ -149,13 +149,19 @@ $content-desktop-large = 900px
     
     <entry>
       <title></title>
-      <url>tbwang.win/categories/index.html</url>
-      <content type="html"></content>
+      <url>tbwang.win/baidu_verify_qr0mnXGKLS.html</url>
+      <content type="html"><![CDATA[qr0mnXGKLS]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[关于我]]></title>
       <url>tbwang.win/about/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>tbwang.win/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
