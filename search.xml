@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[写在2017]]></title>
-      <url>http://tbwang.win/2017/01/03/%E5%86%99%E5%9C%A82017/</url>
+      <url>http://tbwang.win/%E5%86%99%E5%9C%A82017.html</url>
       <content type="html"><![CDATA[<blockquote>
 <p>2016年转眼即过，在这一年经历了太多的事情。买房、学车、结婚、买车、辞职、重新找工作。</p>
 </blockquote>
@@ -25,7 +25,7 @@
     
     <entry>
       <title><![CDATA[FileZilla使用方法(Mac版本)]]></title>
-      <url>http://tbwang.win/2016/12/27/FileZilla-Doc/</url>
+      <url>http://tbwang.win/FileZilla-Doc.html</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-15672782d00886af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <h3 id="Mac系统下如何获取linux服务器文件"><a href="#Mac系统下如何获取linux服务器文件" class="headerlink" title="Mac系统下如何获取linux服务器文件"></a>Mac系统下如何获取linux服务器文件</h3><p> Mac系统下我们出了通过终端命令行来获取Linux服务器文件之外，还可以通过<a href="https://filezilla-project.org" target="_blank" rel="external">FileZilla</a>这款软件来直观的选择所需的文件并且下载到本地。</p>
 <blockquote>
@@ -43,7 +43,7 @@
     
     <entry>
       <title><![CDATA[Markdown使用方法]]></title>
-      <url>http://tbwang.win/2016/12/26/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+      <url>http://tbwang.win/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</url>
       <content type="html"><![CDATA[<h1 id="Markdown使用方法"><a href="#Markdown使用方法" class="headerlink" title="Markdown使用方法"></a>Markdown使用方法</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
 <p><a href="http://baike.baidu.com/link?url=W4NFVG2OdlAhRWBFUt8tAFAELA7d7NvaTvi5pJGLmT7c3El2StkWyX2iA9qSjjcOGIClZ85NhdYzBXfKAkIwmAHDy0hct6Cu5xlbMScSIxS" target="_blank" rel="external">Markdown</a> 是一种轻量级的<strong>「标记语言」</strong>，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被<strong>「标记」</strong>、<strong>「语言」</strong>所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。 </p>
 </blockquote>
@@ -94,7 +94,7 @@
     
     <entry>
       <title><![CDATA[Hexo页面功能编辑]]></title>
-      <url>http://tbwang.win/2016/12/24/Hexo-Style-Modify/</url>
+      <url>http://tbwang.win/Hexo-Style-Modify.html</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-f897aef7850fccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <h3 id="Hexo-添加搜索功能"><a href="#Hexo-添加搜索功能" class="headerlink" title="Hexo 添加搜索功能"></a>Hexo 添加搜索功能</h3><blockquote>
 <p>打开终端工具进入hexo所在目录，执行下列语句安装插件</p>
@@ -148,14 +148,14 @@ $content-desktop-large = 900px
   
     
     <entry>
-      <title><![CDATA[关于我]]></title>
-      <url>http://tbwang.win/about/index.html</url>
+      <title></title>
+      <url>http://tbwang.win/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://tbwang.win/categories/index.html</url>
+      <title><![CDATA[关于我]]></title>
+      <url>http://tbwang.win/about/index.html</url>
       <content type="html"></content>
     </entry>
     
