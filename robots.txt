@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.tbwang.com/sitemap.xml
-Sitemap: http://www.tbwang.com/baidusitemap.xml
+Sitemap: http://tbwang.com/sitemap.xml
+Sitemap: http://tbwang.com/baidusitemap.xml
