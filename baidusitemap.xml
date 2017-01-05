@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>tbwang.win/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</loc>
+    <lastmod>2017-01-05T08:10:51.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令整理</title>
+        <pubTime>2017-01-05T06:36:46.000Z</pubTime>
+        
+        <tag>linux常用命令</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="tbwang.win/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>tbwang.win/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</loc>
+    <lastmod>2017-01-05T06:50:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Markdown使用方法</title>
+        <pubTime>2016-12-26T06:35:23.000Z</pubTime>
+        
+        <tag>Markdown</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo教程" url="tbwang.win/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>tbwang.win/%E4%B8%80%E4%B8%AAjava%E9%AB%98%E7%BA%A7%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF.html</loc>
     <lastmod>2017-01-05T03:18:40.000Z</lastmod>
     <data>
@@ -101,26 +141,6 @@
            
              
               <breadCrumb title="工具使用" url="tbwang.win/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>tbwang.win/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</loc>
-    <lastmod>2016-12-26T06:35:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>Markdown使用方法</title>
-        <pubTime>2016-12-26T06:35:23.000Z</pubTime>
-        
-        <tag>Markdown</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo教程" url="tbwang.win/categories/Hexo%E6%95%99%E7%A8%8B/"/>
           
         </display>
     </data>

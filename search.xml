@@ -4,6 +4,77 @@
   
     
     <entry>
+      <title><![CDATA[Linux常用命令整理]]></title>
+      <url>tbwang.win/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</url>
+      <content type="html"><![CDATA[<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><blockquote>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3></blockquote>
+<p><strong>按规则查找某个文件或文件夹，包括子目录,这里的<code>*</code>表示0个或多个占位符，<code>?</code>表示一个占位符</strong></p>
+<ul>
+<li><code>find . -name &#39;*.sh&#39;</code> – 以.sh结尾的文件</li>
+<li><code>find . -name &#39;*channel*&#39;</code> – 包含channel字符的文件</li>
+<li><code>find . -name &#39;build*&#39;</code>– 以build开头的文件</li>
+<li><code>find . -name &#39;abc??&#39;</code>– abc后面有两个字符的文件</li>
+</ul>
+<blockquote>
+<h3 id="grep-Global-Regular-Expression-Print"><a href="#grep-Global-Regular-Expression-Print" class="headerlink" title="grep (Global Regular Expression Print)"></a>grep (Global Regular Expression Print)</h3></blockquote>
+<p><strong>查找内容包含指定的范本样式的文件</strong></p>
+<ul>
+<li><code>grep -n pattern files</code>  – 规则 -n表示显示行号</li>
+<li><code>grep -n &#39;tbwang.win&#39; robots.txt</code> 查找该目录下的robots.txt文件中的关键词<code>tbwang.win</code>所在的行信息，关键词上的单引号可加可不加,注意子目录文件中的信息不会被检索</li>
+<li><code>grep -i pattern files</code>：不区分大小写地搜索。默认情况区分大小写  </li>
+<li><code>grep -w pattern files</code>：只匹配整个单词，而不是字符串的一部分（如匹配‘magic’，而不是‘magical’） </li>
+<li><code>grep -C number pattern files</code> ：匹配的上下文分别显示[number]行</li>
+<li><code>grep pattern1 | pattern2 files</code>：显示匹配 pattern1 或 pattern2 的行</li>
+<li><code>grep pattern1 files | grep pattern2</code>：显示既匹配 pattern1 又匹配 pattern2 的行。 </li>
+</ul>
+<p><strong> grep命令经常和其他命令一起使用 </strong></p>
+<ul>
+<li><code>ls -l | grep source</code> —找到当前目录下叫<code>source</code>的文件夹或文件</li>
+<li><code>ps -ef | grep custCenter</code> —查找当前叫<code>custCenter</code>的进程名,杀进程的时候会使用到</li>
+</ul>
+<blockquote>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3></blockquote>
+<p><strong>tail [-f] [-c Number | -n Number | -m Number | -b Number | -k Number] [File]</strong><br><strong>从指定点开始将文件写到标准输出。使用tail命令的-f选项可以方便的查阅正在改变的日志文件，tail -f filename会把filename里最尾部的内容显示在屏幕上，并且不断刷新，使你看到最新的文件内容。</strong></p>
+<ul>
+<li><code>tail -f test.log</code> —循环查看文件内容，Ctrl＋c来终止</li>
+<li>`tail -n 5 test.log —显示文件最后5行内容</li>
+<li>`tail -n +5 test.log —从第5行开始显示文件</li>
+</ul>
+<blockquote>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3></blockquote>
+<p><strong>more [-dlfpcsu] [-num] [+/ pattern] [+linenum] [file…]</strong><br><strong>more命令和cat的功能一样都是查看文件里的内容，但有所不同的是more可以按页来查看文件的内容，还支持直接跳转行等功能。</strong></p>
+<ul>
+<li><code>more +3 test.log</code> —显示文件中从第3行起的内容</li>
+<li><code>more -5 test.log</code> —设定每屏显示行数</li>
+<li><code>ls -l | more -5</code> —每页显示5个文件信息</li>
+<li><code>more +/day3 test.log</code> —查找第一个出现”day3”字符串的行，并从该处前两行开始显示输出</li>
+</ul>
+<blockquote>
+<h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3></blockquote>
+<p><strong>less [options] [file…]</strong><br><strong>与more命令一样，less命令也用来分屏显示文件的内容。但是二者存在差别：less命令允许用户向前或向后浏览文件，而more命令只能向前浏览。用less命令显示文件时，用PageUp键向上翻页，用PageDown键向下翻页。要退出less程序，应按Q键。</strong></p>
+<ul>
+<li><code>less test.log</code> —查看文件</li>
+<li><code>ps -ef | less</code> —查看进程信息并通过less分页显示</li>
+<li><code>history | less</code> —查看命令历史使用记录并通过less分页显示</li>
+<li><code>less test1.log test2.log</code> —浏览多个文件，n和p切换文件</li>
+</ul>
+<blockquote>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3></blockquote>
+<p><strong>主要用来监控系统信息变化，每隔一段时间重复运行一个命令，默认间隔时间是2秒。要运行的命令直接传给shell（注意引用和转义特殊字符）。结果会展示为全屏模式，这样你可以很方便的观察改变</strong></p>
+<ul>
+<li><code>watch -n 60 date</code> —执行date命令每分钟一次，输入^C 退出</li>
+<li><code>watch -d ls -l</code> —查看目录变化</li>
+<li><code>watch -d ’ls -l | fgrep joe’</code> —想找joe用户的文件</li>
+<li><code>watch -d &#39;ls -l|grep scf&#39;</code> —监测当前目录中 scf’ 的文件的变化</li>
+<li><code>watch -n 10 &#39;cat /proc/loadavg&#39;</code> —10秒一次输出系统的平均负载</li>
+<li><code>watch -n 1 -d netstat -ant</code> —每隔一秒高亮显示网络链接数的变化</li>
+<li><code>watch -n 1 -d &#39;pstree | grep http&#39;</code> —每隔一秒高亮显示http链接数的变化<pre><code>注：Mac系统下终端没有watch命令
+</code></pre></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[一个java高级工程师的进阶之路]]></title>
       <url>tbwang.win/%E4%B8%80%E4%B8%AAjava%E9%AB%98%E7%BA%A7%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF.html</url>
       <content type="html"><![CDATA[<h2 id="一个java高级工程师的进阶之路-转"><a href="#一个java高级工程师的进阶之路-转" class="headerlink" title="一个java高级工程师的进阶之路(转)"></a>一个java高级工程师的进阶之路(<a href="http://www.aiuxian.com/article/p-2266950.html" target="_blank" rel="external">转</a>)</h2><h3 id="宏观方面"><a href="#宏观方面" class="headerlink" title="宏观方面"></a>宏观方面</h3><blockquote>
@@ -213,7 +284,7 @@ SHH/PUTTY 远程
 <p>图片与链接<br>插入链接与插入图片的语法很像，区别在一个!号<br>图片为：<code>![](){ImgCap}{/ImgCap}</code><br>链接为：<code>[]()</code></p>
 <p>插入图片的地址需要图床，这里推荐<a href="http://weibotuchuang.sinaapp.com" target="_blank" rel="external">围脖图床修复计划</a> 与 <a href="http://www.getcloudapp.com" target="_blank" rel="external">CloudApp</a> 的服务，生成URL地址即可。<br><img src="http://upload-images.jianshu.io/upload_images/3949443-ec9e9cd514238af5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="URL 与图片">URL 与图片</p>
 <p>粗体与斜体<br>Markdown 的粗体和斜体也非常简单，用两个 <code>**</code><br>包含一段文本就是粗体的语法，用一个 <code>*</code><br>包含一段文本就是斜体的语法。<br>例如：<strong>这里是粗体</strong> <em>这里是斜体</em> </p>
-<p>###表格<br>表格是我觉得 Markdown 比较累人的地方，例子如下：</p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>表格是我觉得 Markdown 比较累人的地方，例子如下：</p>
 <table>
 <thead>
 <tr>
@@ -231,15 +302,15 @@ SHH/PUTTY 远程
 </tbody>
 </table>
 <p>表格的语法格式主要用到了 <code>| - :</code><br><code>|</code>主要用来划定列，<code>-</code>用来划分首行与数据，<code>:</code>放在<code>--</code>的前面表示左对齐，后面表示右对齐，两边都有则是中间对齐。</p>
-<p>###代码框<br>如果你是个程序猿，需要在文章里优雅的引用代码框，在 Markdown下实现也非常简单，只需要用两个 ` 把中间的代码包裹起来。图例：<br><img src="http://upload-images.jianshu.io/upload_images/3949443-54e86d0eba588bab.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h3><p>如果你是个程序猿，需要在文章里优雅的引用代码框，在 Markdown下实现也非常简单，只需要用两个 ` 把中间的代码包裹起来。图例：<br><img src="http://upload-images.jianshu.io/upload_images/3949443-54e86d0eba588bab.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>使用tab键即可缩进。</p>
-<p>你好，我是代码框<br>也可以使用顿号来实现<br><code>你好，我也是代码框</code></p>
+<pre><code>你好，我是代码框
+</code></pre><p>也可以使用顿号来实现<br><code>你好，我也是代码框</code></p>
 <p>###分割线<br>分割线的语法只需要三个<code>***</code>号</p>
 <hr>
 <h2 id="三-相关推荐"><a href="#三-相关推荐" class="headerlink" title="三 相关推荐"></a>三 相关推荐</h2><p><strong>工具</strong><br><em>图床工具用来上传图片获取 URL 地址</em><br><a href="http://droplr.com" target="_blank" rel="external">Droplr</a><br><a href="http://www.getcloudapp.com" target="_blank" rel="external">Cloudapp</a><br><a href="https://itunes.apple.com/cn/app/yi-xiang/id672522335?mt=12&amp;uo=4" target="_blank" rel="external">ezShare for Mac</a><br><a href="http://weibotuchuang.sinaapp.com" target="_blank" rel="external">围脖图床修复计划</a></p>
 <p><em>在线好用的Markdown工具，为印象笔记而生</em><br><a href="http://maxiang.info" target="_blank" rel="external">马克飞象，专为印象笔记打造的Markdown编辑器，非常推荐</a></p>
 <p>发现一篇博客，可以参考下：<a href="http://blog.junyu.pro/posts/hexo/0006-qa-posts-based-on-markdown.html#align" target="_blank" rel="external">MarkDown使用教程</a></p>
-<p>文／Te_Lee（简书作者） </p>
 ]]></content>
     </entry>
     
