@@ -37,8 +37,8 @@
 <p><strong>tail [-f] [-c Number | -n Number | -m Number | -b Number | -k Number] [File]</strong><br><strong>从指定点开始将文件写到标准输出。使用tail命令的-f选项可以方便的查阅正在改变的日志文件，tail -f filename会把filename里最尾部的内容显示在屏幕上，并且不断刷新，使你看到最新的文件内容。</strong></p>
 <ul>
 <li><code>tail -f test.log</code> —循环查看文件内容，Ctrl＋c来终止</li>
-<li>`tail -n 5 test.log —显示文件最后5行内容</li>
-<li>`tail -n +5 test.log —从第5行开始显示文件</li>
+<li><code>tail -n 5 test.log</code> —显示文件最后5行内容</li>
+<li><code>tail -n +5 test.log</code>—从第5行开始显示文件</li>
 </ul>
 <blockquote>
 <h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3></blockquote>
@@ -376,14 +376,14 @@ $content-desktop-large = 900px
     </entry>
     
     <entry>
-      <title><![CDATA[关于我]]></title>
-      <url>tbwang.win/about/index.html</url>
+      <title></title>
+      <url>tbwang.win/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title></title>
-      <url>tbwang.win/categories/index.html</url>
+      <title><![CDATA[关于我]]></title>
+      <url>tbwang.win/about/index.html</url>
       <content type="html"></content>
     </entry>
     
