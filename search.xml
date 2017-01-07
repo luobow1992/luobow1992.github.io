@@ -4,6 +4,97 @@
   
     
     <entry>
+      <title><![CDATA[XML基础知识]]></title>
+      <url>tbwang.win/XML%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<h3 id="什么是XML语言？"><a href="#什么是XML语言？" class="headerlink" title="什么是XML语言？"></a>什么是XML语言？</h3></blockquote>
+<p>XML时可扩展标记语言(Extensible Markup Language),它和Html类似，是一种标记语言，主要用来传输和结构化存储数据。</p>
+<a id="more"></a>
+<blockquote>
+<h3 id="XML和HTML的区别"><a href="#XML和HTML的区别" class="headerlink" title="XML和HTML的区别"></a>XML和HTML的区别</h3></blockquote>
+<p>它不是HTML的替代，二者的设计目的不同。XML主要用来传输和存储数据，其焦点是数据的内容，HTML则是设计用来显示数据，焦点是数据的外观。HTML旨在显示数据，XML则旨在传输数据。</p>
+<blockquote>
+<h3 id="XML的特点"><a href="#XML的特点" class="headerlink" title="XML的特点"></a>XML的特点</h3></blockquote>
+<ul>
+<li>XML是个纯文本，有能力处理纯文本的软件都可以处理XML文件。</li>
+<li>XML没有预定义的标签，你可以自己定义自己的标签和自己的文档结构，比如<wang>….</wang>,这一点与HTML是不同的。</li>
+<li>XML是独立于软件和硬件的信息传输工具，是目前各种应用程序中进行数据传输的最常用的工具，并且在信息存储和描述领域变得越来越流行。它可以简化数据传输、简化平台变更、是你的数据更加有用。</li>
+</ul>
+<blockquote>
+<h3 id="XML基本语法规则"><a href="#XML基本语法规则" class="headerlink" title="XML基本语法规则"></a>XML基本语法规则</h3></blockquote>
+<ol>
+<li>所有的XML都要有关闭标签。<code>注：声明不属于XML本身的组成部分。它不是 XML 元素，也不需要关闭标签。</code></li>
+<li>XML标签对大小写敏感，必须使用相同的大小写来编辑打开、关闭标签。</li>
+<li>XML文档必须有根目录，作为其他所有元素的父元素</li>
+<li>XML的属性值必须加引号,下面的date不加引号是错的。<br> <code>&lt;note date=08/08/2008&gt;</code><br> <code>&lt;to&gt;George&lt;/to&gt;</code><br> <code>&lt;from&gt;John&lt;/from&gt;</code><br> <code>&lt;/note&gt;</code></li>
+<li>XML的注释的写法 <code>&lt;!--This is a comment--&gt;</code></li>
+<li>XML中的空格会被保留，HTML中的多个空格会被合并成一个，XML不会</li>
+<li>如果属性值本身包含双引号，那么有必要使用单引号包围它，就像这个例子：<br><code>&lt;gangster name=&#39;George &quot;Shotgun&quot; Ziegler&#39;&gt;</code><br>或者可以使用实体引用：<br><code>&lt;gangster name=&quot;George &amp;quot;Shotgun&amp;quot; Ziegler&quot;&gt;</code></li>
+<li>实体引用 <em>这部分要重点说一下</em>，在XML中，一些字符拥有特殊的意义，如果你把字符“&lt;”放在xml元素中，就会发生错误，因为解析器会把它们当作新的开始进行解析，比如下面的写法就是错误的。<br><code>&lt;message&gt; if salary &lt; 10000 then &lt;/message&gt;</code><br>为了避免这个错误，请使用实体引用来代替“&lt;”字符<br><code>&lt;message&gt;if salary &amp;lt; 1000 then&lt;/message&gt;</code><br>在XML中，有5个预定义的实体饮用</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><code>&amp;lt;</code></th>
+<th>&lt;</th>
+<th>小于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;gt;</code></td>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td><code>&amp;amp;</code></td>
+<td>&amp;</td>
+<td>和号</td>
+</tr>
+<tr>
+<td><code>&amp;apos;</code></td>
+<td>‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td><code>&amp;quot;</code></td>
+<td>“</td>
+<td>引号</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<h3 id="什么是XML元素？"><a href="#什么是XML元素？" class="headerlink" title="什么是XML元素？"></a>什么是XML元素？</h3></blockquote>
+<p>XML元素指的是从(且包括)开始标签到结束标签的部分，元素可以包含其他元素、文本、或者二者的混合物。元素可以拥有属性</p>
+<blockquote>
+<h3 id="XML命名规则"><a href="#XML命名规则" class="headerlink" title="XML命名规则"></a>XML命名规则</h3></blockquote>
+<p>XML 元素必须遵循以下命名规则：</p>
+<ul>
+<li>名称可以含字母、数字以及其他的字符</li>
+<li>名称不能以数字或者标点符号开始</li>
+<li>名称不能以字符 “xml”（或者 XML、Xml）开始</li>
+<li>名称不能包含空格</li>
+<li>可使用任何名称，没有保留的字词。</li>
+</ul>
+<blockquote>
+<h3 id="XML-DTD"><a href="#XML-DTD" class="headerlink" title="XML DTD"></a>XML DTD</h3></blockquote>
+<p>DTD 的作用是定义 XML 文档的结构。它使用一系列合法的元素来定义文档结构：</p>
+<pre><code>&lt;!DOCTYPE note [
+  &lt;!ELEMENT note (to,from,heading,body)&gt;
+  &lt;!ELEMENT to      (#PCDATA)&gt;
+  &lt;!ELEMENT from    (#PCDATA)&gt;
+  &lt;!ELEMENT heading (#PCDATA)&gt;
+  &lt;!ELEMENT body    (#PCDATA)&gt;
+]&gt; 
+</code></pre><p><a href="http://www.w3school.com.cn/xml/xml_validator.asp" target="_blank" rel="external">XML语法验证</a></p>
+<blockquote>
+<p>XML和CSS结合使用</p>
+</blockquote>
+<p>这个不是推荐的写法，如果要用可以参考<a href="http://www.w3school.com.cn/xml/xml_display.asp" target="_blank" rel="external">W3School教程</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Linux常用命令整理]]></title>
       <url>tbwang.win/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</url>
       <content type="html"><![CDATA[<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><blockquote>
@@ -371,14 +462,14 @@ $content-desktop-large = 900px
     </entry>
     
     <entry>
-      <title><![CDATA[关于我]]></title>
-      <url>tbwang.win/about/index.html</url>
+      <title></title>
+      <url>tbwang.win/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title></title>
-      <url>tbwang.win/tags/index.html</url>
+      <title><![CDATA[关于我]]></title>
+      <url>tbwang.win/about/index.html</url>
       <content type="html"></content>
     </entry>
     
