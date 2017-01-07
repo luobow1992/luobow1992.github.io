@@ -95,9 +95,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Linux常用命令整理]]></title>
+      <title><![CDATA[Linux常用命令]]></title>
       <url>tbwang.win/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html</url>
-      <content type="html"><![CDATA[<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><blockquote>
+      <content type="html"><![CDATA[<blockquote>
 <h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3></blockquote>
 <p><strong>按规则查找某个文件或文件夹，包括子目录,这里的<code>*</code>表示0个或多个占位符，<code>?</code>表示一个占位符</strong></p>
 <ul>
@@ -167,9 +167,9 @@
     </entry>
     
     <entry>
-      <title><![CDATA[一个java高级工程师的进阶之路]]></title>
+      <title><![CDATA[一个java高级工程师的进阶之路([转](http://www.aiuxian.com/article/p-2266950.html))]]></title>
       <url>tbwang.win/%E4%B8%80%E4%B8%AAjava%E9%AB%98%E7%BA%A7%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF.html</url>
-      <content type="html"><![CDATA[<h2 id="一个java高级工程师的进阶之路-转"><a href="#一个java高级工程师的进阶之路-转" class="headerlink" title="一个java高级工程师的进阶之路(转)"></a>一个java高级工程师的进阶之路(<a href="http://www.aiuxian.com/article/p-2266950.html" target="_blank" rel="external">转</a>)</h2><h3 id="宏观方面"><a href="#宏观方面" class="headerlink" title="宏观方面"></a>宏观方面</h3><blockquote>
+      <content type="html"><![CDATA[<h3 id="宏观方面"><a href="#宏观方面" class="headerlink" title="宏观方面"></a>宏观方面</h3><blockquote>
 <p>JAVA</p>
 </blockquote>
 <p>要想成为JAVA（高级）工程师肯定要学习JAVA。一般的程序员或许只需知道一些JAVA的语法结构就可以应付了。但要成为JAVA（高级）工程师，您要对JAVA做比较深入的研究。您应该多研究一下JDBC、IO包、Util包、Text包、JMS、EJB、RMI、线程。如果可能，希望您对JAVA的所有包都浏览一下，知道大概的API，这样您就发现其实您想实现的很多功能，通过JAVA的API都可以实现了，就不必自己费太多的脑经了。 </p>
@@ -310,15 +310,6 @@ SHH/PUTTY 远程
     </entry>
     
     <entry>
-      <title><![CDATA[Oracle基础知识]]></title>
-      <url>tbwang.win/Oracle-Study-1.html</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>DML语句</p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[写在2017]]></title>
       <url>tbwang.win/%E5%86%99%E5%9C%A82017.html</url>
       <content type="html"><![CDATA[<p id="div-border-left-red">2016年转眼即过，在这一年经历了太多的事情。买房、学车、结婚、买车、辞职、重新找工作</p>
@@ -332,7 +323,7 @@ SHH/PUTTY 远程
     </entry>
     
     <entry>
-      <title><![CDATA[FileZilla使用方法(Mac版本)]]></title>
+      <title><![CDATA[FileZila使用方法]]></title>
       <url>tbwang.win/FileZilla-Doc.html</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-15672782d00886af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <h3 id="Mac系统下如何获取linux服务器文件"><a href="#Mac系统下如何获取linux服务器文件" class="headerlink" title="Mac系统下如何获取linux服务器文件"></a>Mac系统下如何获取linux服务器文件</h3><p> Mac系统下我们出了通过终端命令行来获取Linux服务器文件之外，还可以通过<a href="https://filezilla-project.org" target="_blank" rel="external">FileZilla</a>这款软件来直观的选择所需的文件并且下载到本地。</p>
@@ -352,7 +343,7 @@ SHH/PUTTY 远程
     <entry>
       <title><![CDATA[Markdown使用方法]]></title>
       <url>tbwang.win/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</url>
-      <content type="html"><![CDATA[<h1 id="Markdown使用方法"><a href="#Markdown使用方法" class="headerlink" title="Markdown使用方法"></a>Markdown使用方法</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
+      <content type="html"><![CDATA[<h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><blockquote>
 <p><a href="http://baike.baidu.com/link?url=W4NFVG2OdlAhRWBFUt8tAFAELA7d7NvaTvi5pJGLmT7c3El2StkWyX2iA9qSjjcOGIClZ85NhdYzBXfKAkIwmAHDy0hct6Cu5xlbMScSIxS" target="_blank" rel="external">Markdown</a> 是一种轻量级的<strong>「标记语言」</strong>，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被<strong>「标记」</strong>、<strong>「语言」</strong>所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。 </p>
 </blockquote>
 <a id="more"></a>
@@ -401,8 +392,8 @@ SHH/PUTTY 远程
     </entry>
     
     <entry>
-      <title><![CDATA[Hexo页面功能编辑]]></title>
-      <url>tbwang.win/Hexo-Style-Modify.html</url>
+      <title><![CDATA[Hexo使用方法]]></title>
+      <url>tbwang.win/Hexo%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html</url>
       <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/3949443-f897aef7850fccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
 <h3 id="Hexo-添加搜索功能"><a href="#Hexo-添加搜索功能" class="headerlink" title="Hexo 添加搜索功能"></a>Hexo 添加搜索功能</h3><blockquote>
 <p>打开终端工具进入hexo所在目录，执行下列语句安装插件</p>
@@ -440,7 +431,16 @@ limit: 10000
 $content-desktop = 700px
 // 当视窗超过 1600px 后的宽度
 $content-desktop-large = 900px
-</code></pre><h3 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h3><blockquote>
+</code></pre><h3 id="代码行、代码块样式更改"><a href="#代码行、代码块样式更改" class="headerlink" title="代码行、代码块样式更改"></a>代码行、代码块样式更改</h3><p>以next主题为例，找到<code>next\source\css\components\highlight\highlight.styl</code>文件</p>
+<blockquote>
+<p>编辑代码行</p>
+</blockquote>
+<p>找到<code>code {</code>部分，将其中的<code>color</code>和<code>background</code>更改为你想要的样式</p>
+<blockquote>
+<p>编辑代码块</p>
+</blockquote>
+<p>找到<code>$code-block {</code>部分的 <code>background</code>更改为你要的颜色，字体的颜色需要找到<code>pre {@extend $code-block;code {</code>部分，将<code>color</code>的颜色更改</p>
+<h3 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h3><blockquote>
 <p>插件的基本使用命令</p>
 </blockquote>
 <p>安装插件： <strong>npm install 插件名 –save</strong><br>卸载插件： <strong>npm uninstall 插件名</strong><br>更新插件和博客框架（需要在 E:\git_work_space\hexo 目录下）： <strong>npm update</strong><br>它实质上是通过项目根目录下 package.json 文件更新各大组件</p>
@@ -456,6 +456,12 @@ $content-desktop-large = 900px
   
     
     <entry>
+      <title><![CDATA[关于我]]></title>
+      <url>tbwang.win/about/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>tbwang.win/categories/index.html</url>
       <content type="html"></content>
@@ -464,12 +470,6 @@ $content-desktop-large = 900px
     <entry>
       <title></title>
       <url>tbwang.win/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[关于我]]></title>
-      <url>tbwang.win/about/index.html</url>
       <content type="html"></content>
     </entry>
     

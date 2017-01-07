@@ -410,7 +410,7 @@ dd {
 }
 table {
   margin: 20px 0;
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #ddd;
@@ -498,7 +498,7 @@ pre,
   padding: 0;
   font-size: 13px;
   color: #eaeaea;
-  background: #000;
+  background: #dcdcdc;
   line-height: 1.6;
 }
 pre,
@@ -508,14 +508,14 @@ code {
 code {
   padding: 2px 4px;
   word-wrap: break-word;
-  color: #eaeaea;
-  background: #000;
+  color: #4169e1;
+  background: #dcdcdc;
   border-radius: 3px;
   font-size: 13px;
 }
 pre code {
   padding: 0;
-  color: #eaeaea;
+  color: #4169e1;
   background: none;
   text-shadow: none;
 }
@@ -1680,7 +1680,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bfffa6;
+  background: #45ffa8;
 }
 .links-of-blogroll {
   font-size: 13px;
