@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3949443-f897aef7850fccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3949443-7afee89c35777dac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3949443-162d2e9bbf31e8ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-01-07T07:45:01.000Z">
+<meta property="og:updated_time" content="2017-01-09T09:19:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo使用方法">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3949443-f897aef7850fccf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -451,6 +451,11 @@ $content-desktop-large = 900px
 <p>编辑代码块</p>
 </blockquote>
 <p>找到<code>$code-block {</code>部分的 <code>background</code>更改为你要的颜色，字体的颜色需要找到<code>pre {@extend $code-block;code {</code>部分，将<code>color</code>的颜色更改</p>
+<blockquote>
+<p>代码语言样式选择</p>
+</blockquote>
+<p>使用三个单引号 + 所选语言 + 代码内容 + 三个单引号<br>    ``` java<br>       代码详情<br>    ```</p>
+<p>下面是示例样式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 这是一段java代码</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Test</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">//TODO</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h3><blockquote>
 <p>插件的基本使用命令</p>
 </blockquote>
@@ -570,7 +575,7 @@ $content-desktop-large = 900px
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -588,7 +593,7 @@ $content-desktop-large = 900px
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
