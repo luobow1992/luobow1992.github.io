@@ -96,7 +96,7 @@ XML时可扩展标记语言(Extensible Markup Language),它和Html类似，是�
 <meta property="og:site_name" content="萝卜有点脆的博客">
 <meta property="og:description" content="什么是XML语言？
 XML时可扩展标记语言(Extensible Markup Language),它和Html类似，是一种标记语言，主要用来传输和结构化存储数据。">
-<meta property="og:updated_time" content="2017-01-07T06:48:11.000Z">
+<meta property="og:updated_time" content="2017-01-10T09:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XML基础知识">
 <meta name="twitter:description" content="什么是XML语言？
@@ -478,16 +478,13 @@ XML时可扩展标记语言(Extensible Markup Language),它和Html类似，是�
 <li>可使用任何名称，没有保留的字词。</li>
 </ul>
 <blockquote>
+<h3 id="CDATA"><a href="#CDATA" class="headerlink" title="CDATA"></a>CDATA</h3></blockquote>
+<p>术语 CDATA 指的是不应由 XML 解析器进行解析的文本数据（Unparsed Character Data）。<br>在 XML 元素中，”&lt;” 和 “&amp;” 是非法的。<br>“&lt;” 会产生错误，因为解析器会把该字符解释为新元素的开始。<br>“&amp;” 也会产生错误，因为解析器会把该字符解释为字符实体的开始。<br>某些文本，比如 JavaScript 代码，包含大量 “&lt;” 或 “&amp;” 字符。为了避免错误，可以将脚本代码定义为 CDATA。<br>CDATA 部分中的所有内容都会被解析器忽略。<br>CDATA 部分由 “&lt;![CDATA[“ 开始，由 “]]&gt;” 结束：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span></div><div class="line">&lt;![CDATA[</div><div class="line">function matchwo(a,b)</div><div class="line">&#123;</div><div class="line">if (a &lt; b &amp;&amp; a &lt; 0) then</div><div class="line">  &#123;</div><div class="line">  return 1;</div><div class="line">  &#125;</div><div class="line">else</div><div class="line">  &#123;</div><div class="line">  return 0;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">]]&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在上面的例子中，解析器会忽略 CDATA 部分中的所有内容。<br>关于 CDATA 部分的注释：<br>CDATA 部分不能包含字符串 “]]&gt;”。也不允许嵌套的 CDATA 部分。<br>标记 CDATA 部分结尾的 “]]&gt;” 不能包含空格或折行。</p>
+<blockquote>
 <h3 id="XML-DTD"><a href="#XML-DTD" class="headerlink" title="XML DTD"></a>XML DTD</h3></blockquote>
-<p>DTD 的作用是定义 XML 文档的结构。它使用一系列合法的元素来定义文档结构：</p>
-<pre><code>&lt;!DOCTYPE note [
-  &lt;!ELEMENT note (to,from,heading,body)&gt;
-  &lt;!ELEMENT to      (#PCDATA)&gt;
-  &lt;!ELEMENT from    (#PCDATA)&gt;
-  &lt;!ELEMENT heading (#PCDATA)&gt;
-  &lt;!ELEMENT body    (#PCDATA)&gt;
-]&gt; 
-</code></pre><p><a href="http://www.w3school.com.cn/xml/xml_validator.asp" target="_blank" rel="external">XML语法验证</a></p>
+<p>DTD 的作用是定义 XML 文档的结构。它使用一系列合法的元素来定义文档结构：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE note [</span></div><div class="line">  &lt;!ELEMENT note (to,from,heading,body)&gt;</div><div class="line">  &lt;!ELEMENT to      (#PCDATA)&gt;</div><div class="line">  &lt;!ELEMENT from    (#PCDATA)&gt;</div><div class="line">  &lt;!ELEMENT heading (#PCDATA)&gt;</div><div class="line">  &lt;!ELEMENT body    (#PCDATA)&gt;</div><div class="line">]&gt;</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.w3school.com.cn/xml/xml_validator.asp" target="_blank" rel="external">XML语法验证</a></p>
 <blockquote>
 <p>XML和CSS结合使用</p>
 </blockquote>
@@ -534,8 +531,8 @@ XML时可扩展标记语言(Extensible Markup Language),它和Html类似，是�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/java解析xml文件.html" rel="prev" title="Java解析XML文件">
-                Java解析XML文件 <i class="fa fa-chevron-right"></i>
+              <a href="/DOM4j处理xml文件.html" rel="prev" title="DOM4J处理XML文件">
+                DOM4J处理XML文件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -685,7 +682,7 @@ XML时可扩展标记语言(Extensible Markup Language),它和Html类似，是�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是XML语言？"><span class="nav-number">1.</span> <span class="nav-text">什么是XML语言？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML和HTML的区别"><span class="nav-number">2.</span> <span class="nav-text">XML和HTML的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的特点"><span class="nav-number">3.</span> <span class="nav-text">XML的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML基本语法规则"><span class="nav-number">4.</span> <span class="nav-text">XML基本语法规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是XML元素？"><span class="nav-number">5.</span> <span class="nav-text">什么是XML元素？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML命名规则"><span class="nav-number">6.</span> <span class="nav-text">XML命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML-DTD"><span class="nav-number">7.</span> <span class="nav-text">XML DTD</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是XML语言？"><span class="nav-number">1.</span> <span class="nav-text">什么是XML语言？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML和HTML的区别"><span class="nav-number">2.</span> <span class="nav-text">XML和HTML的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML的特点"><span class="nav-number">3.</span> <span class="nav-text">XML的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML基本语法规则"><span class="nav-number">4.</span> <span class="nav-text">XML基本语法规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是XML元素？"><span class="nav-number">5.</span> <span class="nav-text">什么是XML元素？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML命名规则"><span class="nav-number">6.</span> <span class="nav-text">XML命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDATA"><span class="nav-number">7.</span> <span class="nav-text">CDATA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML-DTD"><span class="nav-number">8.</span> <span class="nav-text">XML DTD</span></a></li></ol></div>
             
 
           </div>
