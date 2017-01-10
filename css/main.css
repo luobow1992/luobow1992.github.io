@@ -308,12 +308,12 @@ hr {
 }
 blockquote {
   padding: 0 15px;
-  color: #666;
-  border-left: 4px solid #ddd;
+  color: #9f35ff;
+  border-left: 6px solid #8080c0;
 }
 blockquote cite::before {
   content: "-";
-  padding: 0 5px;
+  padding: 0 0px;
 }
 dt {
   font-weight: 700;
@@ -1680,7 +1680,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4ec195;
+  background: #defa1a;
 }
 .links-of-blogroll {
   font-size: 13px;
