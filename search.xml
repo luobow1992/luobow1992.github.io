@@ -633,13 +633,13 @@ $content-desktop-large = 900px
     
     <entry>
       <title></title>
-      <url>tbwang.win/tags/index.html</url>
+      <url>tbwang.win/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title></title>
-      <url>tbwang.win/categories/index.html</url>
+      <url>tbwang.win/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
