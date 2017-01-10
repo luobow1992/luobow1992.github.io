@@ -4,10 +4,19 @@
   
     
     <entry>
+      <title><![CDATA[记录一些有意义的话]]></title>
+      <url>tbwang.win/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E8%AF%9D.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>不要尝试抵制诱惑，而要远离诱惑</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java解析XML文件]]></title>
       <url>tbwang.win/java%E8%A7%A3%E6%9E%90xml%E6%96%87%E4%BB%B6.html</url>
       <content type="html"><![CDATA[<h2 id="DOM4J简介"><a href="#DOM4J简介" class="headerlink" title="DOM4J简介"></a>DOM4J简介</h2><p>Dom4j是一个易用的、开源的库，用于XML，XPath和XSLT。它应用于Java平台，采用了Java集合框架并完全支持DOM，SAX和JAXP。</p>
-<h2 id="获取Document对象的三种方式"><a href="#获取Document对象的三种方式" class="headerlink" title="获取Document对象的三种方式"></a>获取Document对象的三种方式</h2><p>解析XML过程是通过获取Document对象，然后继续获取各个节点以及属性等操作，因此获取Document对象是第一步，大体说来，有三种方式：</p>
+<h2 id="获取Document对象的三种方式"><a href="#获取Document对象的三种方式" class="headerlink" title="获取Document对象的三种方式"></a>获取Document对象的三种方式</h2><p>解析XML过程是通过获取Document对象，然后继续获取各个节点以及属性等操作，因此获取Document对象是第一步，大体说来，有三种方式：<br><a id="more"></a></p>
 <blockquote>
 <p>1.自己创建Document对象</p>
 </blockquote>
@@ -491,14 +500,14 @@ $content-desktop-large = 900px
   
     
     <entry>
-      <title></title>
-      <url>tbwang.win/categories/index.html</url>
+      <title><![CDATA[关于我]]></title>
+      <url>tbwang.win/about/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[关于我]]></title>
-      <url>tbwang.win/about/index.html</url>
+      <title></title>
+      <url>tbwang.win/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
