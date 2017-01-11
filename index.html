@@ -701,8 +701,7 @@
 
       
         
-          
-            <hr>
+          <hr>
 <p><em>以下内容主要从w3school学习整理并记录</em></p>
 <hr>
 <blockquote>
@@ -714,51 +713,14 @@
 <li>JSON 具有自我描述性，更易理解</li>
 <li>JSON 比 XML 更小、更快，更易解析。</li>
 </ul>
-<p>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。<br>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval() 函数，用 JSON 数据来生成原生的 JavaScript 对象。</p>
-<blockquote>
-<h3 id="JSON语法规则"><a href="#JSON语法规则" class="headerlink" title="JSON语法规则"></a>JSON语法规则</h3></blockquote>
-<p>Json语法史JavaScript对象表示法语法的子集。</p>
-<ul>
-<li>数据在名称/值对中</li>
-<li>数据由逗号分隔</li>
-<li>花括号保存对象</li>
-<li>方括号保存数组</li>
-</ul>
-<blockquote>
-<h3 id="JSON-名称-值对"><a href="#JSON-名称-值对" class="headerlink" title="JSON 名称/值对"></a>JSON 名称/值对</h3></blockquote>
-<p>JSON 数据的书写格式是：名称/值对。<br>名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"firstName"</span> : <span class="string">"John"</span></div></pre></td></tr></table></figure></p>
-<p>这很容易理解，等价于这条 JavaScript 语句：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">firstName = <span class="string">"John"</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<h3 id="JSON-值"><a href="#JSON-值" class="headerlink" title="JSON 值"></a>JSON 值</h3></blockquote>
-<p><strong>JSON 值可以是：</strong></p>
-<ul>
-<li>数字（整数或浮点数）</li>
-<li>字符串（在双引号中）</li>
-<li>逻辑值（true 或 false）</li>
-<li>数组（在方括号中）</li>
-<li>对象（在花括号中）</li>
-<li>null</li>
-</ul>
-<blockquote>
-<h3 id="JSON-对象"><a href="#JSON-对象" class="headerlink" title="JSON 对象"></a>JSON 对象</h3></blockquote>
-<p>JSON 对象在花括号中书写：<br>对象可以包含多个名称/值对：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="string">"firstName"</span>:<span class="string">"John"</span> , <span class="string">"lastName"</span>:<span class="string">"Doe"</span> &#125;</div></pre></td></tr></table></figure></p>
-<p>这一点也容易理解，与这条 JavaScript 语句等价：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">firstName = <span class="string">"John"</span></div><div class="line">lastName = <span class="string">"Doe"</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<h3 id="JSON-数组"><a href="#JSON-数组" class="headerlink" title="JSON 数组"></a>JSON 数组</h3></blockquote>
-<p>JSON 数组在方括号中书写：<br>数组可包含多个对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="string">"employees"</span>: [</div><div class="line">&#123; <span class="string">"firstName"</span>:<span class="string">"John"</span> , <span class="string">"lastName"</span>:<span class="string">"Doe"</span> &#125;,</div><div class="line">&#123; <span class="string">"firstName"</span>:<span class="string">"Anna"</span> , <span class="string">"lastName"</span>:<span class="string">"Smith"</span> &#125;,</div><div class="line">&#123; <span class="string">"firstName"</span>:<span class="string">"Peter"</span> , <span class="string">"lastName"</span>:<span class="string">"Jones"</span> &#125;</div><div class="line">]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在上面的例子中，对象 “employees” 是包含三个对象的数组。每个对象代表一条关于某人（有姓和名）的记录。<br>JSON 使用 JavaScript 语法<br>因为 JSON 使用 JavaScript 语法，所以无需额外的软件就能处理 JavaScript 中的 JSON。<br>通过 JavaScript，您可以创建一个对象数组，并像这样进行赋值：<br>例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> employees = [</div><div class="line">&#123; <span class="string">"firstName"</span>:<span class="string">"Bill"</span> , <span class="string">"lastName"</span>:<span class="string">"Gates"</span> &#125;,</div><div class="line">&#123; <span class="string">"firstName"</span>:<span class="string">"George"</span> , <span class="string">"lastName"</span>:<span class="string">"Bush"</span> &#125;,</div><div class="line">&#123; <span class="string">"firstName"</span>:<span class="string">"Thomas"</span> , <span class="string">"lastName"</span>: <span class="string">"Carter"</span> &#125;</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>可以像这样访问 JavaScript 对象数组中的第一项：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">employees[<span class="number">0</span>].lastName;</div></pre></td></tr></table></figure></p>
-<p>返回的内容是：<code>Gates</code><br>可以像这样修改数据：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">employees[<span class="number">0</span>].lastName = <span class="string">"Jobs"</span>;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<h3 id="JSON-文件"><a href="#JSON-文件" class="headerlink" title="JSON 文件"></a>JSON 文件</h3></blockquote>
-<p>JSON 文件的文件类型是 <code>&quot;.json&quot;</code><br>JSON 文本的 MIME 类型是 <code>&quot;application/json&quot;</code></p>
-<blockquote>
-<h3 id="JSON文本转换为javaScript对象"><a href="#JSON文本转换为javaScript对象" class="headerlink" title="JSON文本转换为javaScript对象"></a>JSON文本转换为javaScript对象</h3></blockquote>
-<p>创建包含 JSON 语法的 JavaScript 字符串：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> txt = <span class="string">'&#123; "employees" : ['</span> +</div><div class="line"><span class="string">'&#123; "firstName":"Bill" , "lastName":"Gates" &#125;,'</span> +</div><div class="line"><span class="string">'&#123; "firstName":"George" , "lastName":"Bush" &#125;,'</span> +</div><div class="line"><span class="string">'&#123; "firstName":"Thomas" , "lastName":"Carter" &#125; ]&#125;'</span>;</div></pre></td></tr></table></figure></p>
-<p>由于 JSON 语法是 JavaScript 语法的子集，JavaScript 函数 eval() 可用于将 JSON 文本转换为 JavaScript 对象。<br><code>eval()</code> 函数使用的是 JavaScript 编译器，可解析 JSON 文本，然后生成 JavaScript 对象。必须把文本包围在括号中，这样才能避免语法错误：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">eval</span> (<span class="string">"("</span> + txt + <span class="string">")"</span>);</div></pre></td></tr></table></figure></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>通过 JSON 字符串来创建对象<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">First Name: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"fname"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span> </div><div class="line">Last Name: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"lname"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> txt = <span class="string">'&#123;"employees":['</span> +</div><div class="line"><span class="string">'&#123;"firstName":"Bill","lastName":"Gates" &#125;,'</span> +</div><div class="line"><span class="string">'&#123;"firstName":"George","lastName":"Bush" &#125;,'</span> +</div><div class="line"><span class="string">'&#123;"firstName":"Thomas","lastName":"Carter" &#125;]&#125;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = <span class="built_in">eval</span> (<span class="string">"("</span> + txt + <span class="string">")"</span>);</div><div class="line"></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"fname"</span>).innerHTML=obj.employees[<span class="number">1</span>].firstName </div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">"lname"</span>).innerHTML=obj.employees[<span class="number">1</span>].lastName </div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-
-          
+<p>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。<br>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval() 函数，用 JSON 数据来生成原生的 JavaScript 对象。<br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/Json基础学习.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

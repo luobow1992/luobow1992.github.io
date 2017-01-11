@@ -127,7 +127,7 @@
 <li>JSON 具有自我描述性，更易理解</li>
 <li>JSON 比 XML 更小、更快，更易解析。</li>
 </ul>
-<p>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。<br>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval() 函数，用 JSON 数据来生成原生的 JavaScript 对象。</p>
+<p>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。<br>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval() 函数，用 JSON 数据来生成原生的 JavaScript 对象。<br><a id="more"></a></p>
 <blockquote>
 <h3 id="JSON语法规则"><a href="#JSON语法规则" class="headerlink" title="JSON语法规则"></a>JSON语法规则</h3></blockquote>
 <p>Json语法史JavaScript对象表示法语法的子集。</p>
@@ -833,14 +833,14 @@ $content-desktop-large = 900px
   
     
     <entry>
-      <title></title>
-      <url>tbwang.win/categories/index.html</url>
+      <title><![CDATA[关于我]]></title>
+      <url>tbwang.win/about/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[关于我]]></title>
-      <url>tbwang.win/about/index.html</url>
+      <title></title>
+      <url>tbwang.win/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
