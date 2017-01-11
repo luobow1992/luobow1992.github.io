@@ -1,0 +1,929 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JSON解析" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png?v=5.1.0" />
+
+
+
+  <meta name="keywords" content="JSON解析" />
+
+
+
+
+
+
+<meta name="description" content="JSON解析我们常用三种方式进行解析，谷歌的gson，阿里的fastJson，还有就是安卓原生自带的net.sf.json，这三者都可以实现json解析的功能，如果数据量较小，三者任选一种都可以，如果是针对大数据量，那么推荐使用fastJson，不推荐使用net.sf.json。
+
+使用gson解析
+gson支持解析的类型还是比较全面的,包括JavaBean,List,List,Map等,使用起来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java解析Json">
+<meta property="og:url" content="tbwang.win/Java解析Json.html">
+<meta property="og:site_name" content="萝卜有点脆的博客">
+<meta property="og:description" content="JSON解析我们常用三种方式进行解析，谷歌的gson，阿里的fastJson，还有就是安卓原生自带的net.sf.json，这三者都可以实现json解析的功能，如果数据量较小，三者任选一种都可以，如果是针对大数据量，那么推荐使用fastJson，不推荐使用net.sf.json。
+
+使用gson解析
+gson支持解析的类型还是比较全面的,包括JavaBean,List,List,Map等,使用起来">
+<meta property="og:updated_time" content="2017-01-11T03:26:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java解析Json">
+<meta name="twitter:description" content="JSON解析我们常用三种方式进行解析，谷歌的gson，阿里的fastJson，还有就是安卓原生自带的net.sf.json，这三者都可以实现json解析的功能，如果数据量较小，三者任选一种都可以，如果是针对大数据量，那么推荐使用fastJson，不推荐使用net.sf.json。
+
+使用gson解析
+gson支持解析的类型还是比较全面的,包括JavaBean,List,List,Map等,使用起来">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  <link rel="canonical" href="tbwang.win/Java解析Json.html"/>
+
+
+
+
+
+  <title> Java解析Json | 萝卜有点脆的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">萝卜有点脆的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">欢迎来访</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="tbwang.win/Java解析Json.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="萝卜有点脆">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://upload-images.jianshu.io/upload_images/3949443-f377c6d4800bffa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="萝卜有点脆的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="萝卜有点脆的博客" src="http://upload-images.jianshu.io/upload_images/3949443-b32dc5823a87bb4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java解析Json
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-11T11:11:23+08:00">
+                2017-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JSON/" itemprop="url" rel="index">
+                    <span itemprop="name">JSON</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JSON解析我们常用三种方式进行解析，谷歌的gson，阿里的fastJson，还有就是安卓原生自带的net.sf.json，这三者都可以实现json解析的功能，如果数据量较小，三者任选一种都可以，如果<br>是针对大数据量，那么推荐使用fastJson，不推荐使用net.sf.json。</p>
+<blockquote>
+<h3 id="使用gson解析"><a href="#使用gson解析" class="headerlink" title="使用gson解析"></a>使用gson解析</h3></blockquote>
+<p>gson支持解析的类型还是比较全面的,包括JavaBean,List<javabean>,List<string>,Map等,使用起来也是比较方便.</string></javabean></p>
+<p>首先配置环境,需要下载相应的jar包, 下面测试使用的版本是2.2.4.<a href="http://code.google.com/p/google-gson/" target="_blank" rel="external">官方下载地址</a>，<a href="http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/index.html" target="_blank" rel="external">gson API</a></p>
+<a id="more"></a>
+<p>测试用例(源码附件GsonJson.zip,下载地址:<a href="http://pan.baidu.com/s/1qWHNjdU" target="_blank" rel="external">http://pan.baidu.com/s/1qWHNjdU</a>):</p>
+<p>复制代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyGson</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> Gson gson = <span class="keyword">new</span> Gson(); </div><div class="line">    </div><div class="line">    <span class="comment">//java bean to json string</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beanToJson</span><span class="params">()</span></span>&#123;</div><div class="line">        Person person  = <span class="keyword">new</span> Person();</div><div class="line">        person.setId(<span class="number">1</span>);</div><div class="line">        person.setName(<span class="string">"zhanglu"</span>);</div><div class="line">        person.setAddress(<span class="string">"湖北大悟"</span>);</div><div class="line">        System.out.println(gson.toJson(person));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//json string to java bean</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jsonTobean</span><span class="params">()</span></span>&#123;</div><div class="line">        String json = <span class="string">"&#123;'id':'1','name':'zhang','address':'Hubei'&#125;"</span>;</div><div class="line">        Person person = gson.fromJson(json, Person.class);</div><div class="line">        System.out.println(person);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//list&lt;bean&gt; to json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">listBeanToJson</span><span class="params">()</span></span>&#123;</div><div class="line">        Person person1 = <span class="keyword">new</span> Person(<span class="number">1</span>, <span class="string">"zhang"</span>, <span class="string">"Hubei"</span>);</div><div class="line">        Person person2 = <span class="keyword">new</span> Person(<span class="number">2</span>,<span class="string">"lu"</span>,<span class="string">"DaWu"</span>);</div><div class="line">        List&lt;Person&gt; persons = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        persons.add(person1);</div><div class="line">        persons.add(person2);</div><div class="line">        String json = gson.toJson(persons);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//json to list&lt;bean&gt;</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jsonToListBean</span><span class="params">()</span></span>&#123;</div><div class="line">        String json = <span class="string">"[&#123;'id':'1','name':'zhang','address':'Hubei'&#125;,&#123;'id':'2','name':'lu','address':'DaWu'&#125;]"</span>;</div><div class="line">        List&lt;Person&gt; persons = gson.fromJson(json, <span class="keyword">new</span> TypeToken&lt;List&lt;Person&gt;&gt;()&#123;&#125;.getType());</div><div class="line">        <span class="keyword">for</span>(Person per : persons)&#123;</div><div class="line">            System.out.println(per);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment">//list string to string</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">listStringToJson</span><span class="params">()</span></span>&#123;</div><div class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        list.add(<span class="string">"zhanglu"</span>);</div><div class="line">        list.add(<span class="string">"hubei"</span>);</div><div class="line">        list.add(<span class="string">"Dawu"</span>);</div><div class="line">        String json = gson.toJson(list);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//json string to list&lt;string&gt;</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jsonToListString</span><span class="params">()</span></span>&#123;</div><div class="line">        String json = <span class="string">"['zhanglu','hubei','Dawu']"</span>;</div><div class="line">        List&lt;String&gt; list = gson.fromJson(json, <span class="keyword">new</span> TypeToken&lt;List&lt;String&gt;&gt;()&#123;&#125;.getType());</div><div class="line">        <span class="keyword">for</span>(String str : list)&#123;</div><div class="line">            System.out.println(str);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//Map&lt;String,object&gt; to json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mapToJson</span><span class="params">()</span></span>&#123;</div><div class="line">        Map&lt;String, Person&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        Person person = <span class="keyword">new</span> Person(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"湖北大悟"</span>);</div><div class="line">        Person person2 = <span class="keyword">new</span> Person(<span class="number">2</span>, <span class="string">"Alone"</span>, <span class="string">"HuBeiDaWu"</span>);</div><div class="line">        map.put(<span class="string">"person"</span>, person);</div><div class="line">        map.put(<span class="string">"person2"</span>, person2);</div><div class="line">        String json = gson.toJson(map);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//json to Map&lt;Stirng,Object&gt;</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jsonToMap</span><span class="params">()</span></span>&#123;</div><div class="line">        String json = <span class="string">"&#123;'person':&#123;'id':1,'name':'zhanglu','address':'湖北大悟'&#125;,'person2':&#123;'id':2,'name':'Alone','address':'HuBeiDaWu'&#125;&#125;"</span>;</div><div class="line">        Map&lt;String, Person&gt; map = gson.fromJson(json, <span class="keyword">new</span> TypeToken&lt;Map&lt;String,Person&gt;&gt;()&#123;&#125;.getType());</div><div class="line">        <span class="keyword">for</span>(String str : map.keySet())&#123;</div><div class="line">            System.out.println(<span class="string">"key:"</span>+str);</div><div class="line">            System.out.println((Person)map.get(str));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//test refrences obj</span></div><div class="line">    <span class="comment">//如果双向引用, 会产生死循环,  方法1, 在需要被过滤的字段上加上修饰符transient, Cat的animail加上了</span></div><div class="line">    <span class="comment">//方法1：排除transient字段</span></div><div class="line">    <span class="comment">/*//方法2：排除Modifier为指定类型的字段Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.PROTECTED) // &lt;---.create();*/</span></div><div class="line">    <span class="comment">//方法3：使用@Expose注解,注意，没有被 @Expose 标注的字段会被排除，如下所示：</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testReferences</span><span class="params">()</span></span>&#123;</div><div class="line">        Animail animail = <span class="keyword">new</span> Animail();</div><div class="line">        animail.setName(<span class="string">"Animial"</span>);</div><div class="line">        Cat cat = <span class="keyword">new</span> Cat();</div><div class="line">        cat.setId(<span class="number">1</span>);</div><div class="line">        cat.setName(<span class="string">"Cat1"</span>);</div><div class="line">        cat.setAnimail(animail);</div><div class="line">        Cat cat2 = <span class="keyword">new</span> Cat();</div><div class="line">        cat2.setId(<span class="number">2</span>);</div><div class="line">        cat2.setName(<span class="string">"Cat2"</span>);</div><div class="line">        cat.setAnimail(animail);</div><div class="line">        List&lt;Cat&gt; cats  = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        cats.add(cat2);</div><div class="line">        cats.add(cat);</div><div class="line">        animail.setCatlist(cats);</div><div class="line">        String json = gson.toJson(animail);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//方法4：使用ExclusionStrategy定制字段排除策略,这种方式最灵活，下面的例子把所有以下划线开头的字段全部都排除掉：</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ExclusionStrategy</span><span class="params">()</span></span>&#123;</div><div class="line">        ClassInfo classInfo = <span class="keyword">new</span> ClassInfo();</div><div class="line">        classInfo.setClassNo(<span class="string">"C0001"</span>);</div><div class="line">        classInfo.setClassName(<span class="string">"Java_1"</span>);</div><div class="line">        StudentInfo stu1 = <span class="keyword">new</span> StudentInfo();</div><div class="line">        stu1.setStuId(<span class="number">1</span>);</div><div class="line">        stu1.setStuName(<span class="number">1</span>);</div><div class="line">        StudentInfo stu2 = <span class="keyword">new</span> StudentInfo();</div><div class="line">        stu2.setStuId(<span class="number">1</span>);</div><div class="line">        stu2.setStuName(<span class="number">1</span>);</div><div class="line">        stu1.setClassInfo(classInfo);</div><div class="line">        stu2.setClassInfo(classInfo);</div><div class="line">        List&lt;StudentInfo&gt; stulist = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        stulist.add(stu2);</div><div class="line">        stulist.add(stu1);</div><div class="line">        classInfo.setStudentslist(stulist);</div><div class="line">        ExclusionStrategy myExclusionStrategy = <span class="keyword">new</span> ExclusionStrategy() &#123;</div><div class="line">              <span class="meta">@Override</span></div><div class="line">              <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldSkipField</span><span class="params">(FieldAttributes fa)</span> </span>&#123;</div><div class="line">                  <span class="keyword">return</span> fa.getName().equals(<span class="string">"classInfo"</span>);</div><div class="line">              &#125;</div><div class="line"></div><div class="line">              <span class="meta">@Override</span></div><div class="line">              <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldSkipClass</span><span class="params">(Class&lt;?&gt; clazz)</span> </span>&#123;</div><div class="line">                  <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">              &#125;</div><div class="line">         &#125;;</div><div class="line">        Gson gson = <span class="keyword">new</span> GsonBuilder().setExclusionStrategies(myExclusionStrategy).create();</div><div class="line">        String json = gson.toJson(classInfo);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<h3 id="使用fastJson解析"><a href="#使用fastJson解析" class="headerlink" title="使用fastJson解析"></a>使用fastJson解析</h3></blockquote>
+<p>使用阿里的fastJson方式解析json,阿里官方介绍说这个比gson效率更高速度更快,使用fastJson的人也非常多,fastJson同样支持常用的数据类型解析,还提供了大文本解析和对时间类型的解析方式,同样也有android版本jar, 但是这个不是C#的FastJson, 首字母大小写是不一样的, 也不是同一个东西, 不可混为一谈.</p>
+<p>官网文档: <a href="https://github.com/alibaba/fastjson/wiki/常见问题" target="_blank" rel="external">https://github.com/alibaba/fastjson/wiki/常见问题</a></p>
+<p>笔者测试使用的版本是1.1.41,下载地址: <a href="http://repo1.maven.org/maven2/com/alibaba/fastjson/1.1.41/" target="_blank" rel="external">http://repo1.maven.org/maven2/com/alibaba/fastjson/1.1.41/</a><br>fastJson其它版本官方下载地址:<a href="http://repo1.maven.org/maven2/com/alibaba/fastjson/" target="_blank" rel="external">http://repo1.maven.org/maven2/com/alibaba/fastjson/</a></p>
+<p>maven配置:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.41<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>测试用例(源码附件fastJson.zip,下载地址:<a href="http://pan.baidu.com/s/1pJE1xsZ" target="_blank" rel="external">http://pan.baidu.com/s/1pJE1xsZ</a>):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastJsonTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// Java bean to json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JavaBeanToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        Person person = <span class="keyword">new</span> Person(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"Hubei"</span>);</div><div class="line">        String json = JSON.toJSONString(person);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Json to Javabean</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonToJavaBean</span><span class="params">()</span> </span>&#123;</div><div class="line">        String json = <span class="string">"&#123;'address':'Hubei','id':1,'name':'zhanglu'&#125;"</span>;</div><div class="line">        Person person = JSON.parseObject(json, Person.class);</div><div class="line">        System.out.println(person);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// List&lt;JavaBean&gt; to json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">listJavaBeanToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"Hubei"</span>);</div><div class="line">        Person p2 = <span class="keyword">new</span> Person(<span class="number">2</span>, <span class="string">"wukang"</span>, <span class="string">"Hubei"</span>);</div><div class="line">        List&lt;Person&gt; personlist = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        personlist.add(p1);</div><div class="line">        personlist.add(p2);</div><div class="line">        String json = JSON.toJSONString(personlist);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Json to List&lt;JavaBean&gt;</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonToListBean</span><span class="params">()</span> </span>&#123;</div><div class="line">        String json = <span class="string">"[&#123;'address':'Hubei','id':1,'name':'zhanglu'&#125;,&#123;'address':'Hubei','id':2,'name':'wukang'&#125;]"</span>;</div><div class="line">        List&lt;Person&gt; persons = JSON.parseArray(json, Person.class);</div><div class="line">        <span class="keyword">for</span> (Person person : persons) &#123;</div><div class="line">            System.out.println(person);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// List&lt;String&gt; to json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">listStringToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        list.add(<span class="string">"zhanglu"</span>);</div><div class="line">        list.add(<span class="string">"wukang"</span>);</div><div class="line">        String json = JSON.toJSONString(list);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// json to List&lt;String&gt;</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonToListString</span><span class="params">()</span> </span>&#123;</div><div class="line">        String json = <span class="string">"['zhanglu','wukang']"</span>;</div><div class="line">        List&lt;String&gt; list = JSON.parseArray(json, String.class);</div><div class="line">        <span class="keyword">for</span> (String str : list) &#123;</div><div class="line">            System.out.println(str);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Map&lt;String,Object&gt; to json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MapToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        Map&lt;String, Person&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        map.put(<span class="string">"person1"</span>, <span class="keyword">new</span> Person(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"Hubei"</span>));</div><div class="line">        map.put(<span class="string">"person2"</span>, <span class="keyword">new</span> Person(<span class="number">2</span>, <span class="string">"wukang"</span>, <span class="string">"Hubei"</span>));</div><div class="line">        String json = JSON.toJSONString(map);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Json to Map&lt;String,JavaBean&gt;</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonToMap</span><span class="params">()</span> </span>&#123;</div><div class="line">        String json = <span class="string">"&#123;'person1':&#123;'address':'Hubei','id':1,'name':'zhanglu'&#125;,'person2':&#123;'address':'Hubei','id':2,'name':'wukang'&#125;&#125;"</span>;</div><div class="line">        Map&lt;String, Person&gt; map = JSON.parseObject(json,</div><div class="line">                <span class="keyword">new</span> TypeReference&lt;Map&lt;String, Person&gt;&gt;() &#123;</div><div class="line">                &#125;);</div><div class="line">        <span class="keyword">for</span> (String key : map.keySet()) &#123;</div><div class="line">            System.out.println(<span class="string">"key:"</span> + key);</div><div class="line">            System.out.println(map.get(key));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Test references javaBean</span></div><div class="line">    <span class="comment">// Animail,Cat</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestReferences</span><span class="params">()</span> </span>&#123;</div><div class="line">        Animail animail = <span class="keyword">new</span> Animail();</div><div class="line">        animail.setName(<span class="string">"animial"</span>);</div><div class="line">        Cat cat = <span class="keyword">new</span> Cat();</div><div class="line">        cat.setId(<span class="number">1</span>);</div><div class="line">        cat.setName(<span class="string">"MiMi"</span>);</div><div class="line">        Cat cat2 = <span class="keyword">new</span> Cat();</div><div class="line">        cat2.setId(<span class="number">1</span>);</div><div class="line">        cat2.setName(<span class="string">"CiCi"</span>);</div><div class="line">        cat.setAnimail(animail);</div><div class="line">        cat2.setAnimail(animail);</div><div class="line">        List&lt;Cat&gt; catlist = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        catlist.add(cat2);</div><div class="line">        catlist.add(cat);</div><div class="line">        animail.setCatlist(catlist);</div><div class="line">        String json = JSON.toJSONString(animail);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Test references javaBean</span></div><div class="line">    <span class="comment">// Animail,Cat</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestReferences2</span><span class="params">()</span> </span>&#123;</div><div class="line">        Animail animail = <span class="keyword">new</span> Animail();</div><div class="line">        animail.setName(<span class="string">"animial"</span>);</div><div class="line">        Cat cat = <span class="keyword">new</span> Cat();</div><div class="line">        cat.setId(<span class="number">1</span>);</div><div class="line">        cat.setName(<span class="string">"MiMi"</span>);</div><div class="line">        Cat cat2 = <span class="keyword">new</span> Cat();</div><div class="line">        cat2.setId(<span class="number">1</span>);</div><div class="line">        cat2.setName(<span class="string">"CiCi"</span>);</div><div class="line">        cat.setAnimail(animail);</div><div class="line">        cat2.setAnimail(animail);</div><div class="line">        List&lt;Cat&gt; catlist = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        catlist.add(cat2);</div><div class="line">        catlist.add(cat);</div><div class="line">        animail.setCatlist(catlist);</div><div class="line">        String json = JSON.toJSONString(animail,SerializerFeature.DisableCircularReferenceDetect);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// methods 01 transient</span></div><div class="line">    <span class="comment">// @JSONField(serialize=false)</span></div><div class="line">    </div><div class="line">    <span class="comment">// Date to Json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DateToJson</span><span class="params">()</span></span>&#123;</div><div class="line">        StudentInfo studentInfo = <span class="keyword">new</span> StudentInfo();</div><div class="line">        studentInfo.setBirthday(<span class="keyword">new</span> Date());</div><div class="line">        studentInfo.setId(<span class="number">1</span>);</div><div class="line">        JSON.DEFFAULT_DATE_FORMAT = <span class="string">"yyyy-MM-dd"</span>;</div><div class="line">        String json = JSON.toJSONString(studentInfo,SerializerFeature.WriteDateUseDateFormat);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="使用net-sf-json解析"><a href="#使用net-sf-json解析" class="headerlink" title="使用net.sf.json解析"></a>使用net.sf.json解析</h3></blockquote>
+<p>官网下载地址:<a href="http://sourceforge.net/projects/json-lib/files/json-lib/" target="_blank" rel="external">http://sourceforge.net/projects/json-lib/files/json-lib/</a></p>
+<p>其他依赖包: <code>commons-beanutils  ,  commons-collections ,  commons-lang ,  commons-logging  ,ezmorph , json-lib</code></p>
+<p>测试代码(SimpleJson.zip(下载地址:<a href="http://pan.baidu.com/s/1xqWmM" target="_blank" rel="external">http://pan.baidu.com/s/1xqWmM</a>)):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> zhanglu</div><div class="line"> * <span class="doctag">@Desc</span> net.sf.json 测试, commons-collections 4-4.0 不兼容</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleJsonTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// JavaBean to Json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JavaBeanToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        PersonBean person = <span class="keyword">new</span> PersonBean(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"Hubei"</span>);</div><div class="line">        JSONObject json = JSONObject.fromObject(person);</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Json to JavaBean</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonToJavaBean</span><span class="params">()</span> </span>&#123;</div><div class="line">        String json = <span class="string">"&#123;'id':1,'address':'Hubei','name':'zhanglu'&#125;"</span>;</div><div class="line">        PersonBean person = (PersonBean) JSONObject.toBean(JSONObject.fromObject(json), PersonBean.class);</div><div class="line">        System.out.println(person);</div><div class="line">        <span class="comment">// Console result:This is person, id = 1, name = zhanglu, address =</span></div><div class="line">        <span class="comment">// Hubei</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// List&lt;JavaBean&gt; to Json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ListToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        List&lt;PersonBean&gt; personlist = <span class="keyword">new</span> ArrayList&lt;PersonBean&gt;();</div><div class="line">        personlist.add(<span class="keyword">new</span> PersonBean(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"Hubei"</span>));</div><div class="line">        personlist.add(<span class="keyword">new</span> PersonBean(<span class="number">2</span>, <span class="string">"maomao"</span>, <span class="string">"Hebei"</span>));</div><div class="line">        String jsonString = JSONArray.fromObject(personlist).toString();</div><div class="line">        System.out.println(jsonString);</div><div class="line">        <span class="comment">// Console</span></div><div class="line">        <span class="comment">// result:[&#123;"id":1,"address":"Hubei","name":"zhanglu"&#125;,&#123;"id":2,"address":"Hebei","name":"maomao"&#125;]</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// JsonString to List&lt;JavaBean&gt;</span></div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonStringToList</span><span class="params">()</span> </span>&#123;</div><div class="line">        String jsonString = <span class="string">"[&#123;'id':1,'address':'Hubei','name':'zhanglu'&#125;,&#123;'id':2,'address':'Hebei','name':'maomao'&#125;]"</span>;</div><div class="line">        JSONArray jsonArray = JSONArray.fromObject(jsonString);</div><div class="line">        <span class="comment">// List&lt;PersonBean&gt; list = JSONArray.toList(jsonArray, objectClass);过时</span></div><div class="line">        List&lt;PersonBean&gt; list = JSONArray.toList(jsonArray, <span class="keyword">new</span> PersonBean(),<span class="keyword">new</span> JsonConfig());</div><div class="line">        <span class="keyword">for</span> (PersonBean person : list) &#123;</div><div class="line">            System.out.println(person);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Array to Json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ArrayToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        Object[] obj = <span class="keyword">new</span> Object[] &#123; <span class="keyword">new</span> PersonBean(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"Hubei"</span>),<span class="keyword">new</span> PersonBean(<span class="number">2</span>, <span class="string">"maomao"</span>, <span class="string">"Hebei"</span>) &#125;;</div><div class="line">        String jsonString = JSONArray.fromObject(obj).toString();</div><div class="line">        System.out.println(jsonString);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Json to Array</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonToArray</span><span class="params">()</span> </span>&#123;</div><div class="line">        String jsonString = <span class="string">"[&#123;'id':1,'address':'Hubei','name':'zhanglu'&#125;,&#123;'id':2,'address':'Hebei','name':'maomao'&#125;]"</span>;</div><div class="line">        JSONArray jsonArray = JSONArray.fromObject(jsonString);</div><div class="line">        Object[] obj = (Object[]) JSONArray.toArray(jsonArray, PersonBean.class);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; obj.length; i++) &#123;</div><div class="line">            System.out.println((PersonBean) obj[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Map to Json</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MapToJson</span><span class="params">()</span> </span>&#123;</div><div class="line">        Map&lt;String, PersonBean&gt; map = <span class="keyword">new</span> HashMap&lt;String, PersonBean&gt;();</div><div class="line">        map.put(<span class="string">"person1"</span>, <span class="keyword">new</span> PersonBean(<span class="number">1</span>, <span class="string">"zhanglu"</span>, <span class="string">"Hubei"</span>));</div><div class="line">        map.put(<span class="string">"person2"</span>, <span class="keyword">new</span> PersonBean(<span class="number">2</span>, <span class="string">"maomao"</span>, <span class="string">"Hebei"</span>));</div><div class="line">        String json = JSONObject.fromObject(map).toString();</div><div class="line">        System.out.println(json);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Json to map</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JsonToMap</span><span class="params">()</span> </span>&#123;</div><div class="line">        String jsonStr = <span class="string">"&#123;'person1':&#123;'id':1,'address':'Hubei','name':'zhanglu'&#125;,'person2':&#123;'id':2,'address':'Hebei','name':'maomao'&#125;&#125;"</span>;</div><div class="line">        JSONObject jsonObject = JSONObject.fromObject(jsonStr);</div><div class="line">        Map&lt;String,PersonBean&gt; map = <span class="keyword">new</span> HashMap&lt;String,PersonBean&gt;();</div><div class="line">        <span class="keyword">for</span> (Iterator&lt;?&gt; iter = jsonObject.keys(); iter.hasNext();) &#123;</div><div class="line">            String key = (String) iter.next();</div><div class="line">            map.put(key,(PersonBean)JSONObject.toBean((JSONObject) jsonObject.get(key),PersonBean.class));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(String key : map.keySet())&#123;</div><div class="line">            System.out.println((PersonBean)map.get(key));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment">//Reference, ClassInfoBean ===&gt; StudentBean   or   ClassInfoBean &lt;=== StudentBean</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ReferenceToJson</span><span class="params">()</span></span>&#123;</div><div class="line">        ClassInfoBean classInfo1 = <span class="keyword">new</span> ClassInfoBean(<span class="number">1</span>,<span class="string">"Java_1"</span>);</div><div class="line">        ClassInfoBean classInfo2 = <span class="keyword">new</span> ClassInfoBean(<span class="number">2</span>,<span class="string">"Java_2"</span>);</div><div class="line">        StudentInfo student1 = <span class="keyword">new</span> StudentInfo(<span class="number">1</span>, <span class="string">"zhanglu"</span>, classInfo1);</div><div class="line">        StudentInfo student2 = <span class="keyword">new</span> StudentInfo(<span class="number">2</span>, <span class="string">"wukang"</span>, classInfo1);</div><div class="line">        StudentInfo student3 = <span class="keyword">new</span> StudentInfo(<span class="number">3</span>, <span class="string">"maomao"</span>, classInfo2);</div><div class="line">        List&lt;StudentInfo&gt; stulist = <span class="keyword">new</span> ArrayList&lt;StudentInfo&gt;();</div><div class="line">        stulist.add(student1);</div><div class="line">        stulist.add(student2);</div><div class="line">        stulist.add(student3);</div><div class="line">        String jsonString  = JSONArray.fromObject(stulist).toString();</div><div class="line">        System.out.println(jsonString);</div><div class="line">        <span class="comment">//Console result:</span></div><div class="line">        <span class="comment">//[&#123;"id":1,"classInfo":&#123;"classId":1,"className":"Java_1"&#125;,"stuName":"zhanglu"&#125;,</span></div><div class="line">        <span class="comment">// &#123;"id":2,"classInfo":&#123;"classId":1,"className":"Java_1"&#125;,"stuName":"wukang"&#125;,</span></div><div class="line">        <span class="comment">// &#123;"id":3,"classInfo":&#123;"classId":2,"className":"Java_2"&#125;,"stuName":"maomao"&#125;]</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment">//references to bean</span></div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RefrenceToBean</span><span class="params">()</span></span>&#123;</div><div class="line">        String json = <span class="string">"[&#123;'id':1,'classInfo':&#123;'classId':1,'className':'Java_1'&#125;,'stuName':'zhanglu'&#125;,&#123;'id':2,'classInfo':&#123;'classId':1,'className':'Java_1'&#125;,'stuName':'wukang'&#125;,&#123;'id':3,'classInfo':&#123;'classId':2,'className':'Java_2'&#125;,'stuName':'maomao'&#125;]"</span>;</div><div class="line">        JSONArray jsonArray = JSONArray.fromObject(json);</div><div class="line">        List&lt;StudentInfo&gt; list = JSONArray.toList(jsonArray, <span class="keyword">new</span> StudentInfo(),<span class="keyword">new</span> JsonConfig());</div><div class="line">        <span class="keyword">for</span> (StudentInfo stu : list) &#123;</div><div class="line">            System.out.println(stu);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//Console result:</span></div><div class="line">        <span class="comment">//This is a student , id = 1, name = zhanglu,ClassInfo: className = Java_1</span></div><div class="line">        <span class="comment">//This is a student , id = 2, name = wukang,ClassInfo: className = Java_1</span></div><div class="line">        <span class="comment">//This is a student , id = 3, name = maomao,ClassInfo: className = Java_2</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//Error Reference Animail &lt;==&gt; Cat</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ErrorReferemce</span><span class="params">()</span></span>&#123;</div><div class="line">        Animail animail = <span class="keyword">new</span> Animail();</div><div class="line">        animail.setId(<span class="number">1</span>);</div><div class="line">        animail.setName(<span class="string">"猫"</span>);</div><div class="line">        List&lt;Cat&gt; catlist = <span class="keyword">new</span> ArrayList&lt;Cat&gt;();</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">1</span>, <span class="string">"MiMi"</span>, animail));</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">2</span>, <span class="string">"喵喵"</span>, animail));</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">3</span>, <span class="string">"CiCi"</span>, animail));</div><div class="line">        animail.setCatlist(catlist);<span class="comment">//双向</span></div><div class="line">        String json = JSONArray.fromObject(animail).toString();</div><div class="line">        System.out.println(json);</div><div class="line">        <span class="comment">//net.sf.json.JSONException: There is a cycle in the hierarchy!</span></div><div class="line">        <span class="comment">//双向引用会出现死循环. 如果没有异常, 这也是一个错误的结果, 导致json数据庞大 , 可能会出现内存溢出</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//References filter JsonConfig</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ReferencesFiterJsonConfig</span><span class="params">()</span></span>&#123;</div><div class="line">        JsonConfig config = <span class="keyword">new</span> JsonConfig();</div><div class="line">        config.setJsonPropertyFilter(<span class="keyword">new</span> PropertyFilter() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Object source, String name, Object value)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> name.equals(<span class="string">"catlist"</span>);<span class="comment">//设置过滤catlist集合</span></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        Animail animail = <span class="keyword">new</span> Animail();</div><div class="line">        animail.setId(<span class="number">1</span>);</div><div class="line">        animail.setName(<span class="string">"猫"</span>);</div><div class="line">        List&lt;Cat&gt; catlist = <span class="keyword">new</span> ArrayList&lt;Cat&gt;();</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">1</span>, <span class="string">"MiMi"</span>, animail));</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">2</span>, <span class="string">"喵喵"</span>, animail));</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">3</span>, <span class="string">"CiCi"</span>, animail));</div><div class="line">        animail.setCatlist(catlist);<span class="comment">//双向</span></div><div class="line">        String json = JSONArray.fromObject(animail,config).toString();<span class="comment">//引用配置对象</span></div><div class="line">        System.out.println(json);</div><div class="line">        <span class="comment">//Console result:[&#123;"id":1,"name":"猫"&#125;]</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment">//References filter</span></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFilterProperty</span><span class="params">()</span></span>&#123;</div><div class="line">        Animail animail = <span class="keyword">new</span> Animail();</div><div class="line">        animail.setId(<span class="number">1</span>);</div><div class="line">        animail.setName(<span class="string">"猫"</span>);</div><div class="line">        List&lt;Cat&gt; catlist = <span class="keyword">new</span> ArrayList&lt;Cat&gt;();</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">1</span>, <span class="string">"MiMi"</span>, animail));</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">2</span>, <span class="string">"喵喵"</span>, animail));</div><div class="line">        catlist.add(<span class="keyword">new</span> Cat(<span class="number">3</span>, <span class="string">"CiCi"</span>, animail));</div><div class="line">        animail.setCatlist(catlist);<span class="comment">//双向</span></div><div class="line">        JsonConfig config = <span class="keyword">new</span> JsonConfig();</div><div class="line">        config.setExcludes(<span class="keyword">new</span> String[]&#123;<span class="string">"catlist"</span>&#125;);</div><div class="line">        String json = JSONArray.fromObject(animail,config).toString();<span class="comment">//引用配置对象</span></div><div class="line">        System.out.println(json);</div><div class="line">        <span class="comment">//Console result:[&#123;"id":1,"name":"猫"&#125;]</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JSON解析/" rel="tag"># JSON解析</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JSON和XML比较.html" rel="next" title="JSON和XML比较">
+                <i class="fa fa-chevron-left"></i> JSON和XML比较
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://upload-images.jianshu.io/upload_images/3949443-f377c6d4800bffa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+               alt="萝卜有点脆" />
+          <p class="site-author-name" itemprop="name">萝卜有点脆</p>
+          <p class="site-description motion-element" itemprop="description">Never say give up</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luobow1992" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:1594973344@qq.com" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-nd.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用gson解析"><span class="nav-number">1.</span> <span class="nav-text">使用gson解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用fastJson解析"><span class="nav-number">2.</span> <span class="nav-text">使用fastJson解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用net-sf-json解析"><span class="nav-number">3.</span> <span class="nav-text">使用net.sf.json解析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">萝卜有点脆</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>

@@ -308,7 +308,7 @@ hr {
 }
 blockquote {
   padding: 0 15px;
-  color: #9f35ff;
+  color: #191970;
   border-left: 6px solid #8080c0;
 }
 blockquote cite::before {
@@ -1680,7 +1680,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ad90ff;
+  background: #c42a66;
 }
 .links-of-blogroll {
   font-size: 13px;
