@@ -9,8 +9,7 @@
       <content type="html"><![CDATA[<h3 id="Idea工具更改运行内存"><a href="#Idea工具更改运行内存" class="headerlink" title="Idea工具更改运行内存"></a>Idea工具更改运行内存</h3><blockquote>
 <p>在使用Idea编辑工程时候老是提示我内存不足，根据网上搜索的方法，发现都是要求去改idea安装目录下的配置文件，但是无效。后来试了好多方式才最终找到解决方法。</p>
 </blockquote>
-<p>不需要更改安装目录下的配置文件，直接找到下面的位置，将<code>Build process heap size</code>的大小改成一个相对大的数值即可。这个数值以满足你的运行需求即可，不要太大。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/3949443-b9b897f16959c593.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Idea更改项目运行内存"></p>
+<p>不需要更改安装目录下的配置文件，直接找到下面的位置，将<code>Build process heap size</code>的大小改成一个相对大的数值即可。这个数值以满足你的运行需求即可，不要太大。<br><a id="more"></a><br><img src="http://upload-images.jianshu.io/upload_images/3949443-b9b897f16959c593.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Idea更改项目运行内存"></p>
 <h3 id="Idea更改字体和保护色"><a href="#Idea更改字体和保护色" class="headerlink" title="Idea更改字体和保护色"></a>Idea更改字体和保护色</h3><blockquote>
 <p>更改字体大小</p>
 </blockquote>
