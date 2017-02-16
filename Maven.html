@@ -1,0 +1,1037 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Maven" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png?v=5.1.0" />
+
+
+
+  <meta name="keywords" content="Maven" />
+
+
+
+
+
+
+<meta name="description" content="年后终于上班啦，算算已经快有一个月没有更新个人博客了，当初要写博客本身的目的就是为了在记录学习中所遇到的问题、学到的知识的同时，也督促自己养成一种坚持记录的习惯，以后每个月还要继续坚持下去
+
+什么是Maven
+Maven是一个项目管理工具，它包含一个目标对象模型POM（project Object Model），一个项目生命周期（Project Lifecycle），一个依赖管理系统（Depend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven学习">
+<meta property="og:url" content="tbwang.win/Maven.html">
+<meta property="og:site_name" content="萝卜有点脆的博客">
+<meta property="og:description" content="年后终于上班啦，算算已经快有一个月没有更新个人博客了，当初要写博客本身的目的就是为了在记录学习中所遇到的问题、学到的知识的同时，也督促自己养成一种坚持记录的习惯，以后每个月还要继续坚持下去
+
+什么是Maven
+Maven是一个项目管理工具，它包含一个目标对象模型POM（project Object Model），一个项目生命周期（Project Lifecycle），一个依赖管理系统（Depend">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3949443-3031f6706bd4dc22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3949443-d87c71549ee2f9b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3949443-14866e43c2bd6e7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3949443-b56a056db92036f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-16T07:16:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven学习">
+<meta name="twitter:description" content="年后终于上班啦，算算已经快有一个月没有更新个人博客了，当初要写博客本身的目的就是为了在记录学习中所遇到的问题、学到的知识的同时，也督促自己养成一种坚持记录的习惯，以后每个月还要继续坚持下去
+
+什么是Maven
+Maven是一个项目管理工具，它包含一个目标对象模型POM（project Object Model），一个项目生命周期（Project Lifecycle），一个依赖管理系统（Depend">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3949443-3031f6706bd4dc22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+  <link rel="canonical" href="tbwang.win/Maven.html"/>
+
+
+
+
+
+  <title> Maven学习 | 萝卜有点脆的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">萝卜有点脆的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">欢迎来访</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="tbwang.win/Maven.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="萝卜有点脆">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://upload-images.jianshu.io/upload_images/3949443-f377c6d4800bffa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="萝卜有点脆的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="萝卜有点脆的博客" src="http://upload-images.jianshu.io/upload_images/3949443-b32dc5823a87bb4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Maven学习
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T10:25:00+08:00">
+                2017-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>年后终于上班啦，算算已经快有一个月没有更新个人博客了，当初要写博客本身的目的就是为了在记录学习中所遇到的问题、学到的知识的同时，也督促自己养成一种坚持记录的习惯，以后每个月还要继续坚持下去</p>
+<blockquote>
+<h3 id="什么是Maven"><a href="#什么是Maven" class="headerlink" title="什么是Maven"></a>什么是Maven</h3></blockquote>
+<p><strong>Maven</strong>是一个项目管理工具，它包含一个<code>目标对象模型</code>POM（project Object Model），一个<code>项目生命周期</code>（Project Lifecycle），一个<code>依赖管理系统</code>（Dependency Management System）和用来运行定义在生命周期阶段中插件目标的逻辑。</p>
+<a id="more"></a>
+<blockquote>
+<h3 id="Maven的目录结构"><a href="#Maven的目录结构" class="headerlink" title="Maven的目录结构"></a>Maven的目录结构</h3></blockquote>
+<p>Maven采用了约定优于配置这种概念，系统、类库、框架给定了一个合理的默认值，maven通过给项目提供默认行为来融合这种概念。如果我们没有采用自定义的情况下，maven的默认目录结构为</p>
+<ul>
+<li>源代码放在：<code>workspace/src/main/java</code></li>
+<li>资源文件放在：<code>workspace/src/main/resources</code></li>
+<li>测试代码放在：<code>workspace/src/test</code></li>
+<li>字节码文件放在：<code>workspace/target/classes</code></li>
+<li>可发行的jar包放在：<code>workspace/target</code></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3949443-3031f6706bd4dc22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<blockquote>
+<h3 id="Maven和Ant的区别"><a href="#Maven和Ant的区别" class="headerlink" title="Maven和Ant的区别"></a>Maven和Ant的区别</h3></blockquote>
+<h4 id="Apache-Ant"><a href="#Apache-Ant" class="headerlink" title="Apache Ant"></a>Apache Ant</h4><ul>
+<li>Ant 没有正式的约定一个项目的目录结构，你必须明确的告诉Ant哪里放源码，哪里放字节码等。</li>
+<li>Ant 是程序化的，你必须告诉 Ant 做什么，什么时候做。</li>
+<li>Ant 没有生命周期，你必须定义目标和目标之间的依赖。</li>
+</ul>
+<h4 id="Apache-Maven"><a href="#Apache-Maven" class="headerlink" title="Apache Maven"></a>Apache Maven</h4><ul>
+<li>Maven 拥有约定，遵守了约定， Maven 就知道你的源代码放在了哪里。</li>
+<li>Maven 是声明式的。你只需要创建一个 pom.xml 文件并将其放在默认的目录下， Maven 就会帮你干其他的事了。</li>
+<li>Maven 拥有生命周期，当你运行相应的命令后就会被调用，这条命令会告诉 Maven 执行一系列的有序步骤， 直到达到指定的生命周期。</li>
+</ul>
+<blockquote>
+<h3 id="Maven安装和创建"><a href="#Maven安装和创建" class="headerlink" title="Maven安装和创建"></a>Maven安装和创建</h3></blockquote>
+<p>我在Mac系统下使用的Idea工具默认带有Maven无需安装，关于eclipse工具安装Maven、Windows平台下安装Maven这里就不一一讲述了，网上有很多教程可以参考<br>使用Idea工具创建Maven工程非常简单，接下来我们主要针对Maven的一些重要概念进行讲解</p>
+<blockquote>
+<h3 id="Maven的生命周期（Lifecycle）"><a href="#Maven的生命周期（Lifecycle）" class="headerlink" title="Maven的生命周期（Lifecycle）"></a>Maven的生命周期（Lifecycle）</h3></blockquote>
+<p><strong>Maven</strong>强大的一个重要的原因是它有一个十分完善的生命周期模型(lifecycle)，这个生命周期可以从两方面来理解，</p>
+<ul>
+<li>第一，顾名思义，运行Maven的每个步骤都由它来定义的，这种预定义的默认行为使得我们使用Maven变得简单，相比而言，Ant的每个步骤都要你手工去定义。</li>
+<li>第二，这个模型是一种标准，在不同的项目中，使用Maven的接口是一样的，这样就不用去仔细理解每个项目的构建了，一般情况下，<code>mvn clean install</code> 这样的命令是通用的。我想，一定是吸收了许多项目的经验，Maven才能定义出如此完善的模型。</li>
+</ul>
+<p>Maven有三套相互独立的生命周期，请注意这里说的是“三套”，而且“相互独立”，初学者容易将Maven的生命周期看成一个整体，其实不然。这三套生命周期分别是：</p>
+<ul>
+<li><code>Clean Lifecycle</code> <em>在进行真正的构建之前进行一些清理工作</em></li>
+<li><code>Default Lifecycle</code> <em>构建的核心部分，编译，测试，打包，部署等等</em></li>
+<li><code>Site Lifecycle</code> <em> 生成项目报告，站点，发布站点</em></li>
+</ul>
+<p>我再次强调一下它们是相互独立的，你可以仅仅调用clean来清理工作目录，仅仅调用site来生成站点。当然你也可以直接运行 <code>mvn clean install site</code> 运行所有这三套生命周期。</p>
+<p>知道了每套生命周期的大概用途和相互关系以后，来逐个详细看一下每套生命周期，Clean和Site相对比较简单，先解释一下。</p>
+<blockquote>
+<h4 id="Clean生命周期"><a href="#Clean生命周期" class="headerlink" title="Clean生命周期"></a>Clean生命周期</h4></blockquote>
+<p>每套生命周期都由一组阶段(Phase)组成，我们平时在命令行输入的命令总会对应于一个特定的阶段。比如，运行<code>mvn clean</code> ，这个的clean是Clean生命周期的一个阶段。有点绕？要知道有Clean生命周期，也有clean阶段。Clean生命周期一共包含了三个阶段：</p>
+<ul>
+<li><code>pre-clean</code>  执行一些需要在clean之前完成的工作</li>
+<li><code>clean</code>  移除所有上一次构建生成的文件</li>
+<li><code>post-clean</code>  执行一些需要在clean之后立刻完成的工作</li>
+</ul>
+<p><code>mvn clean</code> 中的<code>clean</code>就是上面的<code>clean</code>，在一个生命周期中，运行某个阶段的时候，它之前的所有阶段都会被运行，也就是说，<code>mvn clean</code> 等同于 <code>mvn pre-clean clean</code>，如果我们运行 <code>mvn post-clean</code> ，那么 <code>pre-clean，clean</code>都会被运行。这是Maven很重要的一个规则，可以大大简化命令行的输入。</p>
+<blockquote>
+<h4 id="Site生命周期"><a href="#Site生命周期" class="headerlink" title="Site生命周期"></a>Site生命周期</h4></blockquote>
+<p>下面看一下Site生命周期的各个阶段：</p>
+<ul>
+<li><code>pre-site</code>     执行一些需要在生成站点文档之前完成的工作</li>
+<li><code>site</code>    生成项目的站点文档</li>
+<li><code>post-site</code>    执行一些需要在生成站点文档之后完成的工作，并且为部署做准备</li>
+<li><code>site-deploy</code>     将生成的站点文档部署到特定的服务器上</li>
+</ul>
+<p>这里经常用到的是site阶段和site-deploy阶段，用以生成和发布Maven站点，这可是Maven相当强大的功能，Manager比较喜欢，文档及统计数据自动生成，很好看。</p>
+<blockquote>
+<h4 id="Default生命周期"><a href="#Default生命周期" class="headerlink" title="Default生命周期"></a>Default生命周期</h4></blockquote>
+<p>最后，来看一下Maven的最重要的Default生命周期，绝大部分工作都发生在这个生命周期中，这里，我只解释一些比较重要和常用的阶段：</p>
+<ul>
+<li><code>validate</code></li>
+<li><code>generate-sources</code></li>
+<li><code>process-sources</code></li>
+<li><code>generate-resources</code></li>
+<li><code>process-resources</code>     复制并处理资源文件，至目标目录，准备打包。</li>
+<li><code>compile</code>    编译项目的源代码。</li>
+<li><code>process-classes</code></li>
+<li><code>generate-test-sources</code></li>
+<li><code>process-test-sources</code></li>
+<li><code>generate-test-resources</code></li>
+<li><code>process-test-resources</code>     复制并处理资源文件，至目标测试目录。</li>
+<li><code>test-compile</code>    编译测试源代码。</li>
+<li><code>process-test-classes</code></li>
+<li><code>test</code>     使用合适的单元测试框架运行测试。这些测试代码不会被打包或部署。</li>
+<li><code>prepare-package</code></li>
+<li><code>package</code>     接受编译好的代码，打包成可发布的格式，如 JAR 。</li>
+<li><code>pre-integration-test</code></li>
+<li><code>integration-test</code></li>
+<li><code>post-integration-test</code></li>
+<li><code>verify</code></li>
+<li><code>install</code>     将包安装至本地仓库，以让其它项目依赖。</li>
+<li><code>deploy</code>   将最终的包复制到远程的仓库，以让其它开发人员与项目共享。</li>
+</ul>
+<p>基本上，根据名称我们就能猜出每个阶段的用途，关于其它阶段的解释，请参考<a href="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html" target="_blank" rel="external">文档</a></p>
+<p><strong>记住，运行任何一个阶段的时候，它前面的所有阶段都会被运行，这也就是为什么我们运行</strong>mvn install<strong> 的时候，代码会被编译，测试，打包。</strong></p>
+<p>此外，Maven的插件机制是完全依赖Maven的生命周期的，因此理解生命周期至关重要。</p>
+<blockquote>
+<h3 id="Maven-坐标（Coordinates）"><a href="#Maven-坐标（Coordinates）" class="headerlink" title="Maven 坐标（Coordinates）"></a>Maven 坐标（Coordinates）</h3></blockquote>
+<p>Maven坐标定义了一组标识，它可以用来唯一标识一个项目，一个依赖，或者是一个POM里面的插件。我们先来看一个简单的POM。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3949443-d87c71549ee2f9b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>其中 <code>groupId、artfiactId、version和packaging</code>共同组成了项目的坐标，Maven通过一个坐标来定位一个项目，Maven 坐标一般会用冒号作为分隔符来书写。<br><code>groupId:artifactId:packaging:version</code><br>在上图的项目坐标就可以表示为：<code>com.test:ordcore:jar:1.0.0</code></p>
+<ul>
+<li><code>groupId</code>：表示一个团体标识，它一般以创建这个项目的组织名称的逆向域名（version domain name）开头。比如 Apache Software 就以·org.apache·作为 groupId。</li>
+<li><code>artifactId</code>：在 groupId 下的表示一个单独项目的唯一标识，一般为项目名。</li>
+<li><code>version</code>：一个项目的特定版本。如果是正在开发中的项目那么一般会加上一个特殊的标识，在版本号前加上 “SNAPSHOT”的标记。</li>
+<li><code>package</code>：项目的类型，默认为jar，描述了项目打包后的输出格式。也可以打包成一个 war。</li>
+</ul>
+<blockquote>
+<h3 id="Maven仓库"><a href="#Maven仓库" class="headerlink" title="Maven仓库"></a>Maven仓库</h3></blockquote>
+<p>没有 Maven 时，项目用到的<code>.jar</code> 文件通常需要拷贝到<code>/lib</code> 目录，项目多了，拷贝的文件副本就多了，占用磁盘空间，且难于管理。Maven 使用一个称之为仓库的目录，根据构件的坐标统一存储这些构件的唯一副本，在项目中通过依赖声明，可以方便的引用构件。</p>
+<blockquote>
+<h4 id="仓库的地址"><a href="#仓库的地址" class="headerlink" title="仓库的地址"></a>仓库的地址</h4></blockquote>
+<p>当我们在运行 Maven 项目的时候，Maven 会从 pom.xml 中查找已配置的插件坐标，然后在本地仓库中查找是否有对应的插件，如果没有那么就会从 Maven 自带的<a href="https://repo.maven.org/maven2" target="_blank" rel="external">远程仓库</a>中下载所需要的插件缓存到本地仓库。本地仓库的默认地址：</p>
+<ul>
+<li>window中：<code>C:\Users\USERNAME.m2\repository</code></li>
+<li>linux/Mac中：<code>~/.m2/repository</code></li>
+</ul>
+<p>如果我们有需要的话也是可以修改本地仓库的地址,更改配置<strong>用户范围</strong>的本地仓库：<br>在<code>/.m2/</code> 目录下创建一个<code>setting.xml</code>或者将<code>M2_HOME/conf/settings.xml</code>拷过来<br>在 <code>setting.xml</code>中添加以下节点。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>新的仓库地址<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>更改配置全局范围的本地仓库<br>直接在<code>M2_HOME/conf/settings.xml</code>添加以下节点<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>新的仓库地址<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>当 Maven升级后，所有的配置都将会被清除，所以一般不推荐修改全局的配置</strong></p>
+<blockquote>
+<h4 id="仓库的文件存储布局"><a href="#仓库的文件存储布局" class="headerlink" title="仓库的文件存储布局"></a>仓库的文件存储布局</h4></blockquote>
+<p>在我们打开本地仓库（repository） 后，我们会看到很多的插件，Maven 仓库会按以下目录格式来存储插件。</p>
+<p><code>/ &lt;groupId &gt;/&lt; artifactId &gt;/&lt; version &gt;/&lt; artifactId &gt;-&lt;version&gt;.&lt; packaging &gt;</code><br>比如 fastjson-1.2.20.jar的存储方式<br><code>com/alibaba/fastjson/1.2.20/fastjson-1.2.20.jar</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3949443-14866e43c2bd6e7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>它在pom.xml引用的格式如下：<br><img src="http://upload-images.jianshu.io/upload_images/3949443-b56a056db92036f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Maven/" rel="tag"># Maven</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Idea工具使用.html" rel="next" title="Idea工具使用">
+                <i class="fa fa-chevron-left"></i> Idea工具使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://upload-images.jianshu.io/upload_images/3949443-f377c6d4800bffa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+               alt="萝卜有点脆" />
+          <p class="site-author-name" itemprop="name">萝卜有点脆</p>
+          <p class="site-description motion-element" itemprop="description">Never say give up</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luobow1992" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:1594973344@qq.com" target="_blank" title="Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-nd.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Maven"><span class="nav-number">1.</span> <span class="nav-text">什么是Maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的目录结构"><span class="nav-number">2.</span> <span class="nav-text">Maven的目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven和Ant的区别"><span class="nav-number">3.</span> <span class="nav-text">Maven和Ant的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache-Ant"><span class="nav-number">3.1.</span> <span class="nav-text">Apache Ant</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache-Maven"><span class="nav-number">3.2.</span> <span class="nav-text">Apache Maven</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven安装和创建"><span class="nav-number">4.</span> <span class="nav-text">Maven安装和创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven的生命周期（Lifecycle）"><span class="nav-number">5.</span> <span class="nav-text">Maven的生命周期（Lifecycle）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Clean生命周期"><span class="nav-number">5.1.</span> <span class="nav-text">Clean生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Site生命周期"><span class="nav-number">5.2.</span> <span class="nav-text">Site生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Default生命周期"><span class="nav-number">5.3.</span> <span class="nav-text">Default生命周期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven-坐标（Coordinates）"><span class="nav-number">6.</span> <span class="nav-text">Maven 坐标（Coordinates）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven仓库"><span class="nav-number">7.</span> <span class="nav-text">Maven仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库的地址"><span class="nav-number">7.1.</span> <span class="nav-text">仓库的地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仓库的文件存储布局"><span class="nav-number">7.2.</span> <span class="nav-text">仓库的文件存储布局</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">萝卜有点脆</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
