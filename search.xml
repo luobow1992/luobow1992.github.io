@@ -10,6 +10,7 @@
 <p>因为项目中涉及到redis相关知识的使用，所以写一篇文章简单的介绍下redis的安装以及在java代码中如何使用redis</p>
 </blockquote>
 <p>本次我将redis安装在了ubuntu系统中</p>
+<a id="more"></a>
 <blockquote>
 <h4 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h4></blockquote>
 <p>关于在ubuntu系统中安装redis有两种方式，可参考这篇文章<a href="http://www.cnblogs.com/langtianya/p/5187681.html" target="_blank" rel="external">redis安装方式</a></p>
